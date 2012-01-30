@@ -1,0 +1,47 @@
+,,"gene",,,"protein.1",,,"RNA",,,"protein.site"
+"1","332","nef","1","329","Nef","1","455","5' LTR U3 region begin","1963","2001","Cys-X(2)-Cys-X(4)-His-X(4)-Cys; bind to exposed guanosine bases G9 and G11, respectively, of the G8-G9-U10-G11 tetraloop of RNA Psi element.  Zinc knuckle 1 of 2"
+"790","2292","gag","790","1185","p17","315","329","TCF-1alpha binding start","2026","2064","Cys-X(2)-Cys-X(4)-His-X(4)-Cys; bind to exposed guanosine bases G9 and G11, respectively, of the G8-G9-U10-G11 tetraloop of RNA Psi element.  Zinc knuckle 2 of 2"
+"2293","5096","pol","1186","1881","p24","350","359","NF-kappaB binding start","2152","2169","Vpr binding to p6 region of Gagp55 begin"
+"5041","5619","vif","1882","1920","p2","364","373","NF-kappaB binding start","6616","6692","V1 Loop"
+"5559","5850","Vpr","1921","2085","p7 nucelocapsid","375","386","Sp1-III start","6694","6809","V2 Loop"
+6225,"8795","env gp160 and gp41 end","2086","2133","p1","388","396","Sp1-II start","7111","7214","V3 Loop"
+"8797","9417","nef","2134","2292","p6","398","408","Sp1-I start","7378","7475","V4 Loop"
+,,,"2293","2549","protease","427","431","TATA box start","7602","7631","V5 Loop"
+,,,"2550","3869","RT","453","513","TAR Element start",,,
+,,,"3870","4229","Rnase","456","551","5' LTR R region start; +1 mRNA start site",,,
+,,,"4230","5093","Integrase","476","478","TAR bulge",,,
+,,,5831,5857,"Tat exon 1","483","488","TAR loop",,,
+,,,5970,"6045","tat CDS exon 1","527","532","poly-A signal start",,,
+,,,"6062","6310","Vpu start (defective in HXB2)","552","633","5' LTR U5 region begin",,,
+,,,"6315","7757","env gp120 start","655","673","Interferon-Stimulated Response Element",,,
+,,,"7110","7217","V3 loop start","697","731","SL1 of Psi element start",,,
+,,,"7758","8792","Env gp41 end","736","754","SL2 of Psi element start",,,
+,,,"8797","9167","Nef protein end (HXB2 only)","766","779","SL3 of Psi element start",,,
+,,,"8797","9414","Nef protein end (normal)","793","806","SL4 of Psi element start",,,
+,,,,,,"7710","7805","RRE Rev-responsive element stem I start",,,
+,,,,,,"7780","7798","19-base silencer RNA stem 1 side 1 begin",,,
+,,,,,,"7806","7812","RRE rev-responsive element stem IIa start",,,
+,,,,,,"7933","7940","RRE stem V start",,,
+,,,,,,"7950","7957","RRE stem V' start",,,
+,,,,,,"7963","8061","RRE Rev-responsive element stem I' start",,,
+,,,,,,"7997","8015","19-base silencer RNA stem 1 side 2 begin",,,
+,,,,,,"8091","8117","WNNMTWMEW Caveolin-1 binding site",,,
+,,,,,,"8379","8467","Tat and Rev exon 2 start",,,
+,,,,,,"8575","8587","1DUQ PDB entry chain A is bases 8575-8587",,,
+,,,,,,"8582","8584","subtype B and D 21 bp deletion, relative to A, C, G etc",,,
+,,,,,,"8589","8669","GWEALKYWNLLQYWSQELKNSAVSLL",,,
+,,,,,,"9069","9093","polypurine tract start",,,
+,,,,,,"9086","9540","3' LTR U3 region start",,,
+,,,,,,"9400","9414","TCF-1alpha binding",,,
+,,,,,,"9435",9444,"NK-kappa B II",,,
+,,,,,,"9448","9458","NK-kappa B I",,,
+,,,,,,"9462","9471","SP1-III",,,
+,,,,,,"9473","9482","SP1-II",,,
+,,,,,,"9483","9493","SP1-I",,,
+,,,,,,"9512","9516","TATA box",,,
+,,,,,,"9538","9599","TAR element start",,,
+,,,,,,"9541","9636","3' LTR R repeat start",,,
+,,,,,,"9561","9563","TAR bulge",,,
+,,,,,,"9568","9573","TAR loop",,,
+,,,,,,"9612","9617","poly-A signal start",,,
+,,,,,,"9637","9719","3' LTR U5 region start",,,

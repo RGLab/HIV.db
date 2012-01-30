@@ -1,0 +1,360 @@
+"Protein","Epitope","MAb.Name","HXB2.start","HXB2.end","Subtype","Species","t_frame"
+"gp160","TEKLWVTVYYGVPVWKEATT","7E2/4",6315,6372,"B","mouse",3
+"gp160","ACVPTDPNPQ","D/3G5",6441,6468,"B","mouse",3
+"gp160","ENFDMWKNDM","133/192",6495,6522,"B","mouse",3
+"gp160","NFNMWKNDM","GV4D3",6498,6522,,"mouse",3
+"gp160","GVPVWKEATT","4D4#85",6345,6372,"B","mouse, rat",3
+"gp160","VPVWKEATTTLFCASDAKAY","M86",6348,6405,"B","mouse",3
+"gp160","LFCASDAKAYDTEVHNVWAT","polyclonal",6378,6435,"B","mouse",3
+"gp160","YDTEVHNVWA","133/237",6405,6432,"B","mouse",3
+"gp160","EVHNVWATHACVPTD","133/11",6414,6456,,"mouse",3
+"gp160","EQMHEDIISLWDQSLKPCVK","11/65",6528,6585,"B","mouse, rat",3
+"gp160","ACVPTDPNPQEVVLVNVTEN","D/5E12",6441,6498,"B","mouse",3
+"gp160","PNPQEVVLVNVTENF","L5.1",6459,6501,,"mouse",3
+"gp160","PQEVVLVNVT","4A7C6",6465,6492,"B","mouse",3
+"gp160","PQEVVLVNVTENFDMWKNDM","1D10",6465,6522,"B","rat",3
+"gp160","EVVLVNVTEN","B242",6471,6498,"B","mouse",3
+"gp160","CTDLKNDTNTNSSSGRMMMEK","polyclonal",6615,6675,,"human",3
+"gp160","NTKSSNWKEMDGEIK","35D10/D2",6639,6687,,"transgenic mouse",3
+"gp160","SSNWKE","P1H6",6651,6666,"B","mouse",3
+"gp160","ISTSIRGKVQKEYAFFYKLD","697-D",6705,6762,,"human",3
+"gp160","STSIRGKV","6C4/S",6708,6729,"B","chimpanzee",3
+"gp160","STSIRGKVQ","10/76b",6708,6732,,"rat",3
+"gp160","TTSIRDKVQKEYALFYK","8.22.2",6708,6756,,"transgenic mouse",3
+"gp160","STSIRGKVQKEYAFFYKLDI","12b",6708,6765,,"rat",3
+"gp160","QKEYAFFYKLD","G3-136",6732,6762,,"mouse",3
+"gp160","KEYAFFYKLD","BAT085",6735,6762,,"mouse",3
+"gp160","EYAFFYKLDI","60b",6738,6765,"B","rat",3
+"gp160","EYAFFYKLDIIPIDNDTTSY","38/12b",6738,6795,"B","rat",3
+"gp160","FYKLDIVPIDNTTTSYRLISC","polyclonal",6750,6810,,"human",3
+"gp160","EPIPIHYCAPA","322-151",6855,6885,"B","mouse",3
+"gp160","EPIPIHYCAPAGFAILKCNN","493-156",6855,6912,"B","mouse",3
+"gp160","PIPIHYCAPA",110.1,6858,6885,,"human",3
+"gp160","APAGFAIL","GV4H3",6879,6900,,"mouse",3
+"gp160","GFAILKCNNK","J1",6888,6915,"B","mouse",3
+"gp160","KGSCKNVSTV","1006-30-D",6930,6957,,"human",3
+"gp160","RPVVSTQLLL",213.1,6978,7005,"B","mouse",3
+"gp160","RPVVSTQLLLNGSLAEEEVV","B12",6978,7035,"B","mouse",3
+"gp160","TQLLLN","B21",6993,7008,,"mouse",3
+"gp160","TQLLLNG","B26",6993,7011,,"mouse",3
+"gp160","NGSLAEEEVVIRSVNFTDNA","110.E",7008,7065,"B","mouse",3
+"gp160","VIRSVNFTDN","110.C",7035,7062,"B","mouse",3
+"gp160","SVEINCTRPNNNTRKSI","IIIB-V3-26",7095,7143,,"mouse",3
+"gp160","INCTRP","IIIB-V3-21",7104,7119,,"mouse",3
+"gp160","CTRPNYNKRKHIGPGRAF","168B8",7110,7173,"B","humanized mouse",3
+"gp160","PNNNTRKSIR","MO97/V3",7119,7146,,"human",3
+"gp160","NNNTRKRIRIQRGPGR?","55/1l",7122,7167,,,3
+"gp160","NNNTRKRIRIQRGPGR","8/38c",7122,7167,,"rat",3
+"gp160","NYNKRKRIHIGPGRAFYTTK","polyclonal",7122,7185,,"human",3
+"gp160","NNTRKSIRIQRG",9284,7125,7158,,"mouse",3
+"gp160","NTRKSIHIGPGRAF","polyclonal",7128,7173,"B","human",3
+"gp160","NTRKSIHIGPGRAFY","polyclonal",7128,7176,,"human",3
+"gp160","NTRKSIRIQRGPGRAFVTIG","MAG 109",7128,7185,,"mouse",3
+"gp160","TRTSV","1334-D",7131,7143,"CRF01_AE","human",3
+"gp160","TRTSVR","1324-E",7131,7146,"CRF01_AE","human",3
+"gp160","CKRKIHIGPGQAFYT","polyclonal",7131,7179,"C","mouse",3
+"gp160","RKSIR","MO99/V3",7134,7146,,"human",3
+"gp160","RKRIHIGP","C311E",7134,7161,,"chimpanzee",3
+"gp160","RKSIRIQRGPG",907,7134,7164,,"mouse",3
+"gp160","RKSIRIQRGPGRAFV","polyclonal",7134,7176,"B","human",3
+"gp160","KKGIAIGPGRTLY","polyclonal",7134,7176,,,3
+"gp160","RKRIHIGPGRAFYTT","10F10",7134,7182,"A, B, F","human, mouse",3
+"gp160","RKRIRIQRGPGRAFVTIGK?","CGP 47 439",7134,7188,,"human",3
+"gp160","RKRIHIGPGRAFYTTKN","polyclonal",7134,7188,"multiple","human",3
+"gp160","KSiRI",178.1,7137,7149,,"mouse",3
+"gp160","KRIHI","257-D",7137,7149,"B","human",3
+"gp160","KRIHIGP","311-11-D",7137,7161,"B","human",3
+"gp160","KRIHIGPGRAFY","391/95-D",7137,7176,"B","human",3
+"gp160","KSITIGPGRAFHAI","Aw",7137,7182,,"rat",3
+"gp160","KRIHIGPGRAFYTT","DO142-10",7137,7182,,"human",3
+"gp160","KSITIGSGRAFHAI","Dv",7137,7182,,"rat",3
+"gp160","KSITIGPGRAFYATGD","polyclonal",7137,7188,,"macaque, rabbit",3
+"gp160","RIHIG",50.1,7140,7152,,"mouse",3
+"gp160","RIRIQRGPGRAFVTIGK","BAT123",7140,7188,"B","mouse",3
+"gp160","RIRPGRAFVTIGK","unknown",7140,7188,"B","human",3
+"gp160","KSITK","838-D",7143,7155,"B","human",3
+"gp160","KSITKG","1006-15D",7143,7158,"B","human",3
+"gp160","KSITKGP","1027-15D",7143,7161,"B","human",3
+"gp160","IRIQRGPGR","V3-13",7143,7167,,,3
+"gp160","IRIQRGPGRAFVT","F19.26-4",7143,7179,"B","mouse",3
+"gp160","IRIQRGPGRAFVTI",13105100,7143,7182,"B","human, mouse",3
+"gp160","IRIQRGPGRAFVTIG","polyclonal",7143,7185,"B","chimpanzee",3
+"gp160","SIHIGPGRAF","SP.BAL114",7146,7173,,"mouse",3
+"gp160","SIYIGPGRAF","SP.SF2:104",7146,7173,,,3
+"gp160","RIHIGPGRAFYT","polyclonal",7146,7179,"B","human",3
+"gp160","SISGPGRAFYTG","loop 2",7146,7185,,"human",3
+"gp160","RIQRGPGRAFVTGK","4G10",7146,7188,"B","mouse",3
+"gp160","RIQRGPGRAFVTIGK","G3-523",7146,7188,,"mouse",3
+"gp160","RIHIGPGRAFYTTKN","MN215",7146,7188,,"human",3
+"gp160","RIQRGPGRAFVTIGKI","Nea 9301",7146,7191,,"mouse",3
+"gp160","IXIGPGR","4117C",7149,7167,"B","human",3
+"gp160","IHIGPGR","419-D",7149,7167,"B","human",3
+"gp160","IYIGPGR",83.1,7149,7167,,"mouse",3
+"gp160","IQRGPGra","5023B",7149,7170,,"mouse",3
+"gp160","IxxGPGRA","F58/D1",7149,7170,,"mouse",3
+"gp160","IQRGPGRAF","IIIB-13 V3",7149,7173,,"mouse",3
+"gp160","IQRGPGRAFV","A47/B1",7149,7176,,"mouse",3
+"gp160","IHIGPGRAFYT","&mu;5.5",7149,7179,,"mouse",3
+"gp160","-I----G--FY-T","19b",7149,7182,,"human",3
+"gp160","HIGPGR","268-D",7152,7167,"B","human",3
+"gp160","QrGPGR","5042A",7152,7167,,"mouse",3
+"gp160","QRGPGr","5042B",7152,7167,,"mouse",3
+"gp160","HIGPGRA","418-D",7152,7170,"B","human",3
+"gp160","QrGPGRa",5021,7152,7170,,"mouse",3
+"gp160","QRGPGra","5025B",7152,7170,,"mouse",3
+"gp160","QRGPGRA",5042,7152,7170,,"mouse",3
+"gp160","QRGPGRAF",110.3,7152,7173,,"mouse",3
+"gp160","HIGPGRAF",58.2,7152,7173,,"mouse",3
+"gp160","QRGPGRAFV?","polyclonal",7152,7176,,"mouse",3
+"gp160","IGPGR","537-D",7155,7167,"B","human, humanized mouse",3
+"gp160","RGPGRA",5020,7155,7170,,"mouse",3
+"gp160","IGPGRA","RC25",7155,7170,"B","humanized mouse",3
+"gp160","RgPGRAF","5023A",7155,7173,,"mouse",3
+"gp160","IGPGRAF","P3E1",7155,7173,"B","mouse",3
+"gp160","RGPGRAFV",110.6,7155,7176,,"mouse",3
+"gp160","IGPGRAFY","polyclonal",7155,7176,,"mouse",3
+"gp160","RGPGRAFVTIG","10/36e",7155,7185,,"rat",3
+"gp160","IGPGRAFYTTKN","polyclonal",7155,7188,,"guinea pig",3
+"gp160","RGPGRAFVTIGKIG","0.5β",7155,7194,"B","humanized mouse, mouse",3
+"gp160","GPXR","447-52D",7158,7167,"B","human",3
+"gp160","GPGR","C25",7158,7167,"B","mouse",3
+"gp160","GPGRAF",1026,7158,7173,,"mouse, rabbit",3
+"gp160","GPGRAFY","10E3",7158,7176,"A, B, C, D, F, G, O, multiple","human, mouse, rabbit",3
+"gp160","GPGRAFVTI","N11-20",7158,7182,,"mouse",3
+"gp160","pgRAF","5025A",7161,7173,,"mouse",3
+"gp160","PGRAFY","N70-1.9b",7161,7176,,"human",3
+"gp160","PGRAFVTIGKIG",902,7161,7194,,"mouse",3
+"gp160","FNMW","B27",6501,6510,"B","mouse",3
+"gp160","FNMWKN","B35",6501,6516,,"mouse",3
+"gp160","FNMWKNDMV","D/4B5",6501,6525,"B","mouse",3
+"gp160","VEQMHEDIIS","B18",6525,6552,"B","mouse",3
+"gp160","VEQMHEDIISLWDQSLKPCV","187.2.1",6525,6582,"B","mouse, rat",3
+"gp160","RNISFKA","2H1B",7293,7308,"HIV-2","mouse",3
+"gp160","HEDIISLWD","GV1A8",6537,6561,,"mouse",3
+"gp160","EDIISLW","CA13",6540,6558,"A","mouse",3
+"gp160","LWDQSLKPCV",11,6555,6582,"B","mouse",3
+"gp160","LTPLCVSLKCTDLKNDTNTN","6D5",6588,6645,"B","mouse",3
+"gp160","TPLCVSLKCTDLGNATNTNS","B33",6591,6648,"B","mouse",3
+"gp160","IKQI","E51",7482,7491,"B","human",3
+"gp160","KQIINMWQEVGKAMYA","JL413",7485,7530,"B","human",3
+"gp160","QFINMWQEVK","5C2E5",7488,7515,,"mouse",3
+"gp160","IINMWQKVGKAMYAP","G3-211",7491,7533,,"mouse",3
+"gp160","NMWQEVGKAMYA","polyclonal",7497,7530,,"mouse",3
+"gp160","NMWQEVGKAMYAPPISG",1795,7497,7545,,,3
+"gp160","EVGKAMYAPP","G3-299",7509,7536,,"mouse, rat",3
+"gp160","EVGKAMYAPPISGQI","MO86/C3",7509,7551,,"human",3
+"gp160","GKAMYAPPIS","13H8",7515,7542,,"mouse",3
+"gp160","KAMYAPPISGQIRCSSNITG","polyclonal",7518,7575,"B","mouse",3
+"gp160","AMYAPPI",1662,7521,7539,,,3
+"gp160","AMYAPPISGQ",1794,7521,7548,,,3
+"gp160","LTRDGGNNNNESEIFRPGGGD","polyclonal",7584,7644,,"human",3
+"gp160","NNNNGSEI","polyclonal",7602,7623,"B","human",3
+"gp160","SNNESEIFRL","CRA1",7605,7632,"B","mouse, rat",3
+"gp160","GGGDMRDNWRSE",9201,7635,7668,"B","mouse",3
+"gp160","GGGDMRDNWRSELYKYKVVK","1C1",7635,7692,"B","mouse",3
+"gp160","GGDMRD","H11",7638,7653,"B","mouse",3
+"gp160","GGDMRDNWRSELYKYKVVKI","W2",7638,7695,"B","mouse",3
+"gp160","KYKVVKEIPLGVAPTKAKRR","M38",7677,7734,,"mouse",3
+"gp160","IEPLGVAPTK",110.1,7695,7722,"B","human, mouse",3
+"gp160","EPLGVAP","Chim 1",7698,7716,"B","humanized chimpanzee",3
+"gp160","KPFSVAPTP","105-306",7698,7722,"O","mouse",3
+"gp160","LGVAPT","GV1G2",7704,7719,,"mouse",3
+"gp160","APTKAKR","803.15.6",7713,7731,,,3
+"gp160","PTKAKRR","670-D",7716,7734,,"human",3
+"gp160","TKAKRRVVQREKR","158F3",7719,7755,"B","humanized mouse",3
+"gp160","RRVVQRE","722-D",7731,7749,,"human, mouse",3
+"gp160","dwVVQREKR","1331A",7731,7755,,"human",3
+"gp160","RRVVQREKR","polyclonal",7731,7755,,"human",3
+"gp160","VVQREKR","1131-A",7737,7755,"B","human",3
+"gp160","AAGSTMGAASMTLTVQARQ","1A1",7797,7851,,"human",3
+"gp160","AQQHLLQLTVWGIKQLQARIL","&alpha;(566-586)",7905,7965,,"human",3
+"gp160","GIKQLQARILAVERYLKDQQ","PC5009",7938,7995,,"human, mouse",3
+"gp160","LQARILAVERYLKDQQL","polyclonal",7950,7998,,"human",3
+"gp160","QARILAV","unknown",7953,7971,"B","human, mouse",3
+"gp160","RILAVERYLKD","polyclonal",7959,7989,,"mouse, rabbit",3
+"gp160","RILAVERYLKDQQLLGIWGCS","polyclonal",7959,8019,"B","human, rabbit",3
+"gp160","ILAVERYLKDQQLLGIWG","polyclonal",7962,8013,,"human",3
+"gp160","AVERYLKD","polyclonal",7968,7989,,"human",3
+"gp160","AVERYLKDQQL","anti-P1",7968,7998,"B",,3
+"gp160","ERYLKDQLLGIWGCSGKLIC","polyclonal",7974,8034,,"human",3
+"gp160","DQQLLGIWGCSG","2F11",7989,8022,"B","human",3
+"gp160","qqLLGIWg","246-D",7992,8013,"B","human",3
+"gp160","QQLLGIWGCSGKLICTTA","polyclonal",7992,8043,"B, CRF01_AE","human",3
+"gp160","QLLG","9G5A",7995,8004,,"mouse",3
+"gp160","qLLGIWg","181-D",7995,8013,"B","human",3
+"gp160","LLGIWGCSG","240-D",7998,8022,"B","human",3
+"gp160","LLGIWGCSGKLICTT","F240",7998,8040,,"human",3
+"gp160","LLGIWGCSGKLICTTAV","D49",7998,8046,"B","mouse",3
+"gp160","LGLIWGCSGKLIC",115.8,8001,8034,,"mouse",3
+"gp160","LGIWGCSGKLIC","M-1",8001,8034,,"mouse",3
+"gp160","GIWGCSGK","polyclonal &alpha;598-609",8004,8025,,"human",3
+"gp160","GIWGCSGKLIC","1B8.env",8004,8034,"B","human",3
+"gp160","GIWGCSGKLICTTAVP","polyclonal",8004,8049,,"human",3
+"gp160","IWGCSGKLICTTA","polyclonal",8007,8043,"B","human",3
+"gp160","GCSGKLICTT","clone 3",8013,8040,"B","human",3
+"gp160","CSGKLIC",4,8016,8034,,"human, mouse, rat",3
+"gp160","KGRLICYT","105-732",8019,8040,,"mouse",3
+"gp160","SGKLICTTAVPWNAS","3D6",8019,8061,,"human",3
+"gp160","GKLICTTAVPW","P1G9",8022,8052,"B","mouse",3
+"gp160","CTTAVPWNASWS?","F172-D8",8034,8067,,"human",3
+"gp160","NNMTWMEWEREREIGNY","P2D2",8094,8136,"B","mouse",3
+"gp160","WKEM(D/N)R","P3B2",8106,8121,"B","mouse",3
+"gp160","SLIEESQNQQEKNEQELLEL","120-16",8154,8211,"B","human",3
+"gp160","ELLELDKWASLW","polyclonal",8199,8232,"B","guinea pig",3
+"gp160","ELDEWA","14D9",8208,8223,"B, CRF01_AE, O","mouse",3
+"gp160","ELDKWA","18F11",8208,8223,"B","goat, guinea pig, human, mouse, rabbit",3
+"gp160","ELNKWA","TH-Ab1",8208,8223,,"rabbit",3
+"gp160","WASLWNWFDITN","Z13e1",8220,8253,"B","human",3
+"gp160","NWFDIT","4E10",8235,8250,"B","human",3
+"gp160","HLPIPRGPDRPEGIE","B30",8382,8424,,"mouse",3
+"gp160","RGPDRPEGIEEEGGERDRDRS","41S-2",8397,8457,,"mouse",3
+"gp160","PDRPEG","C8",8403,8418,"B","mouse",3
+"gp160","PDRPEGIE","B31",8403,8424,,"mouse",3
+"gp160","DRPEGIEEEGGERDRDRS",1575,8406,8457,,"mouse",3
+"gp160","GIEEEGGERDRDRSIR","88-158/02",8418,8463,,"mouse",3
+"gp160","IEEE","polyclonal",8421,8430,,"mouse",3
+"gp160","IEEEGGERD","B8",8421,8445,,"mouse",3
+"gp160","GERDRDR","SAR1",8436,8454,"B","mouse",3
+"gp160","ERDRD",1577,8439,8451,"B","mouse",3
+"gp160"," WCR","anti-HIV-2 polyclonal",7212,7218,"HIV-2","guinea pig",3
+"gp160","AFVTIGK","110.I",7170,7188,,"mouse",3
+"gp160","HYQ","B2C",7179,7185,"HIV-2","mouse",3
+"gp160","GRAF","694/98-D",7164,7173,"B","human",3
+"gp160","RAF",9205,7167,7173,,"mouse",3
+"gp160","IFKQSSGGDPEIVTHSFNCGG","4D7/4",7302,7362,"B","mouse",3
+"gp160","FKQSSGGDPEIVTHSFNCGGE","36.1(ARP 329)",7305,7365,"B","mouse",3
+"gp160","IGKIGNMRQ","IIIB-V3-01",7182,7206,,"mouse",3
+"gp160","FHSQ ","anti-HIV-2 polyclonal",7173,7182,"HIV-2","guinea pig",3
+"gp160","WFNSTW","B15",7407,7422,,"mouse",3
+"gp160","APGK","2F19C",7311,7317,"HIV-2","mouse",3
+"gp160","GEFFYCNSTQLFNS","110.D",7362,7401,"B","mouse",3
+"Nef","TVRERMRRAE","13/035",8839,8866,,"mouse",1
+"Nef","VGWPTVRERM","13/042",8827,8854,,"mouse",1
+"Nef","AAVDLSHFLKEKGGLEGLIHS","31/03",9043,9103,,"mouse",1
+"Nef","FLKEKGGLE","polyclonal",9064,9088,,"human, rabbit",1
+"Nef","ERMRRAEPA?","A6",8848,8872,,"mouse",1
+"Nef","DGVGAVSRDLEKHGAITS?","A7",8878,8929,"B","mouse",1
+"Nef","VGAASRDLEKHGAI","25/03",8884,8923,,"mouse",1
+"Nef","GAASRDLEKH","3F2",8887,8914,,"mouse",1
+"Nef","GAASRDLEKHGAITSSNTAA","3D12",8887,8944,,"mouse",1
+"Nef","AATNAACAWLEAQEEE","polyclonal",8941,8986,,"mouse",1
+"Nef","TNAACAWLEAQEEEEVGFPVT","3G12",8947,9007,,"mouse",1
+"Nef","AQEEEEVGFPVTPQ","13/058",8974,9013,,"mouse",1
+"Nef","QEEEEVGFPVT","polyclonal",8977,9007,,"rabbit",1
+"Nef","QEEEEVGFPVTPQVPLRPMT","2E3",8977,9034,,"mouse",1
+"Nef","AAVDLS","F14.11",9043,9058,,"mouse",1
+"Nef","VARELHPEYFKNC","AE6",9376,9412,"B","mouse",1
+"Nef","MARELHPEYYKDC","EH1",9376,9412,,"mouse",1
+"Nef","YHTQGYFPDWQN?","F4",9139,9172,,"mouse",1
+"Nef","QGYFPDWQNYTPGPGV","polyclonal",9148,9193,,"mouse",1
+"Nef","TPGPGVRYPL?","F3",9178,9205,"B","mouse",1
+"Nef","FKLVPVSEAE","polyclonal",9223,9247,,"rabbit",1
+"Nef","VEPDKVEEAN","F1",9238,9265,,"mouse",1
+"Nef","DKVEEANKGENTSLLHPVSL","2F2",9247,9304,,"mouse",1
+"Nef","NTSLLHPVSLHGMDDPEREV","3E6",9277,9334,,"mouse",1
+"Nef","LHGMDDPEREVL?","E5",9304,9337,,"mouse",1
+"Nef","HGMDDPEREVLEWRFDSRLA","2A3",9307,9364,,"mouse",1
+"Nef","DSRLAFHHVARELHPEYFKNC","polyclonal",9352,9412,"B","mouse",1
+"Nef","HHVARELHPEYFKNC","E7",9370,9412,,"mouse",1
+"Nef","SVIGWLTVRERMRRAE","polyclonal",8821,8866,,"mouse",1
+"p10","PQIYLWQ",1696,2253,2271,,"mouse",3
+"p10","LPGRWKPK","13E1",2364,2385,"B","hamster",3
+"p10","MSLPGRWKPKM","10E7",2358,2388,"B","hamster, mouse",3
+"p17","DTGHSSQVSQNY","15-21",1150,1183,,"mouse",1
+"p17","EKIRLR","32/1.24.89",838,853,,"mouse",1
+"p17","KKAQQAAADT","3-H-7",1126,1153,"B","mouse",1
+"p17","ELDKWEKIRLRPGGKTLY","HyHIV-1",823,874,,"mouse",1
+"p17","ELDKWEKIRLRPGGKTLY?","HyHIV-4",823,874,,"mouse",1
+"p17","GQLQPSLQTGSEELRSL","12H-D3b3",973,1021,,"rat",1
+"p17","IRLPGGKKKYMLKHVVWAA","3B10",844,901,,"mouse",1
+"p17","GKTHYMINPL","polyclonal",862,889,,"rabbit",1
+"p17","LETSEGCRQILGQLQ","B4f8",940,982,,"rat",1
+"p17","AAGTGNSSQVSQNY","1D9",1144,1183,,"mouse",1
+"p17","LEKIEEEQNKSKKKA?","11H9",1090,1132,,"mouse",1
+"p17","ELDRWEKI ","32/5.8.42",823,844,,"mouse",1
+"p17"," ALDKIE","32/5.8.42",1087,1102,,"mouse",1
+"p17","GELDRWEKIRLRPGG","L14.17",820,862,"B","mouse",1
+"p24","LKETINEEAAEWDRVHPV","1109/01",1390,1441,"B","mouse",1
+"p24","PIVQNIQGQMVHQAISPRTL","111/182",1186,1243,,"mouse",1
+"p24","VHQAISPRTLNAWVK","ID8F6",1216,1258,,"mouse",1
+"p24","RVHPVHAGPIAPGQMREPRGS",25.3,1429,1489,,"mouse",1
+"p24","EAAEWDRVHP","1-B-7",1411,1438,,"mouse",1
+"p24","HAGPIAPGQMREPRG","RL4.72.1",1444,1486,,"mouse",1
+"p24","GSDIAGTTSTLQEQIGWMTNN","406/01",1486,1546,,"mouse",1
+"p24","GSDIAGTTSTLQEQIGWMTNL","polyclonal",1486,1546,"B","mouse",1
+"p24","NPPIPVGEIY","38:9.6K",1546,1573,"B","mouse",1
+"p24","NPPIPVGEIYKRWII","EB1A9",1546,1588,"B","mouse",1
+"p24","RMYSPT","LH-104-E",1612,1627,,"mouse",1
+"p24","ETINEEAAEWD","111/073",1396,1426,,"mouse",1
+"p24","ETINEEAAEWDRVHP","10-E-7",1396,1438,"B","mouse",1
+"p24","IRQGPKEPFRDYVDRFYKTL","23A5G4",1642,1699,"B","mouse",1
+"p24","EAAEWDRVHPVHAGP","FF1",1411,1453,"B","mouse",1
+"p24","DRVHPVHAGP","113/072",1426,1453,,"mouse",1
+"p24","KTLRAEQASQEVKNWMTET","9A4C4",1693,1747,,"mouse",1
+"p24","HPVHAGPIAPG","13-102-100",1435,1465,,"mouse",1
+"p24","QASQEVKNWMTETLL","BE3",1711,1753,"B","mouse",1
+"p24","VKNWMTETLL","108/03",1726,1753,,"mouse",1
+"p24","ILKALGPAATLEEMM","FH2",1786,1828,"B","mouse",1
+"p24","LGPAATLEEM","13B5",1798,1825,,"mouse",1
+"p24","LEEMMTACQGVGGPGHKARV","106/01",1816,1873,,"mouse",1
+"p24","GHKARV","LH-104-B",1858,1873,,"mouse",1
+"p24","HKARVL","LH-104-I",1861,1876,,"mouse",1
+"p24","CVKQGPKEPFQSYVDRFYKSL","1.17.3",1639,1699,,"mouse",1
+"p24","DIRQGP ","LH-104-A",1639,1654,,"mouse",1
+"p24","GPKEPF ","LH-104-C",1651,1666,,"mouse",1
+"p24","QGPKEPFRDYVDRFY","V10",1648,1690,,"mouse",1
+"p24","AISPRTLNAW","F5-2",1225,1252,"B","mouse",1
+"p24","NAWVK","CB-13/5",1246,1258,,"mouse",1
+"p24","SEGATPQDLNTMLNTVG","polyclonal",1315,1363,"B","mouse",1
+"p24","EGATPQ","3D3",1318,1333,"B","mouse",1
+"p24","GATPQDLNTML","CD-4/1",1321,1351,,"mouse",1
+"p24","ATPQDLNTML","15F8C7",1324,1351,,"mouse",1
+"p24","DLNTMLNTVG","111/052",1336,1363,,"mouse",1
+"p24","AAMQMLKETINE","91-5",1375,1408,,"human",1
+"p24"," QGVGGP","LH-104-A",1840,1855,,"mouse",1
+"p24","SILDIR","1B2C12",1630,1645,,"mouse",1
+"p24","TLRAEQASQEVKNWM","11C10B10",1696,1738,"B","mouse",1
+"p24","FRDYVDRFYK","12-B-4",1666,1693,"B","mouse",1
+"p24"," QGVGGP","LH-104-C",1840,1855,,"mouse",1
+"p2p7p1p6","NFRNQRKIVK","i5B11",1936,1963,,"rat",1
+"p2p7p1p6","RQANFLGKIWPSYKGR","DG8",2077,2122,,"mouse",1
+"p2p7p1p6","YKGRPGNFL","AD2",2113,2137,,"mouse",1
+"p2p7p1p6","PRKKGCWKCG","EC6",2014,2041,"B","mouse",1
+"p31","FLDGIDKAQDEHEKYH","1C4",4230,4275,"B","mouse",3
+"p31","KELQKQITKIQNFRVYY","8-6",4860,4908,"B","mouse",3
+"p31","RDSRNPLWK",19,4911,4935,"B","mouse",3
+"p31","GPAKLLWKGEGAVVIQ","8-22",4938,4983,"B","mouse",3
+"p31","DNSDIKVVP","4-20",4986,5010,"B","mouse",3
+"p31","VESMNKELKKIIG","anti-K159",4680,4716,,"rabbit",3
+"p31","RRKAKIIRD","6-19",5013,5037,"B","mouse",3
+"p31","RRKAKIIRDY","7C3",5013,5040,"B","mouse",3
+"p31","KAKIIRDYGK","MAb 35",5019,5046,,"mouse",3
+"p31","DFNLPPVVAKE",17,4302,4332,,"mouse",3
+"p31","KCQLKGEAMHGQVD","4D6",4353,4392,"B","mouse",3
+"p51","KDSWTVNDIQKLVGK","polyclonal",3294,3336,,"human",3
+"p51","KTGKY","1.153 G10",3597,3609,,"mouse",3
+"p51","KKDSTKWRK","1E8",2742,2766,,"mouse",3
+"p51","GKIP","1D4A3",3699,3708,,"mouse",3
+"p51","PLTEEAELE","1.152 B3",3429,3453,,"mouse",3
+"p51","LTEEAELELA","polyclonal",3432,3459,,"human",3
+"p51","TTESIVIW","RTMAb8",3675,3696,,"mouse",3
+"p51","VDGAANRET","1.160 B3",3873,3897,,"mouse",3
+"p51","IIEQLIKKEKV","polyclonal",4110,4140,,"human",3
+"p51","VPAHKGIGGNEQVD","C2003",4155,4194,,"rabbit",3
+"Tat_exon1","SYGRKKRRQRRRAHQ","polyclonal",5966,6008,"B","macaque",2
+"Tat_exon1","MEPVDRPLEPWKHPG","polyclonal",5831,5873,"B","macaque",2
+"Tat_exon1","MEPVDPRLEPWKHPGSQPKT?","polyclonal",5831,5888,"B","mouse",2
+"Tat_exon1","EPVDPRLEWKHPGSQPKTA","1D9D5",5834,5891,,"mouse",2
+"Tat_exon1","ACTNCYCKKCCFHCQVCFTT","polyclonal",5891,5948,"B","mouse",2
+"Tat_exon1","GISYGRKKRRQRRPPQG","TB12",5960,6008,"B","mouse",2
+"Tat_exon1","SYGRKKRRQRRRAHQ?","polyclonal",5966,6008,"B","mouse",2
+"Tat_exon1","EPVDPNLEPWNHPS","NT3/2D1.1",5834,5873,,"mouse",2
+"Tat_exon1","YGRKKRRQRRRPPQ","polyclonal",5969,6008,,"human",2
+"Tat_exon1","RQRRRAHQNSQTHQAS","polyclonal",5987,6032,"B","mouse",2
+"Tat_exon1","MEPVDPRLEPGSQPKT","TA9",5831,5888,"B","mouse",2
+"Tat_exon1","EPVDPRLEWKHPGSQ",1.2,5834,5879,,"mouse",2
+"Tat_exon1","NA","polyclonal",5831,5888,"B","mouse",2
+"Tat_exon2","QPRGDPTGPKQKKK","polyclonal",8604,8643,"B","macaque",1
+"Tat_exon2","PTSQPRGDPTGPKE","NT2/4D5.24",8595,8634,,"mouse",1
+"Tat_exon2","PTSQPRGDPTGPKE?","polyclonal",8595,8634,"B","mouse",1
+"Tat_exon2","NA","polyclonal",8595,8634,"B","mouse",1
