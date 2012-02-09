@@ -213,6 +213,11 @@ pep_hxb2<-RangedData(ranges(pep_hxb2),aligned=pep_hxb2[["aligned"]],trimmed=trim
 anno<-JPTdesign[,c("Annotation","SEQNO")]
 pep_hxb2<-RangedData(ranges(pep_hxb2),values(pep_hxb2),anno)
 
+##ADD zpep
+Zpep<-read.csv("inst/extdata/peptides_zpep.csv",row.names="peptide")
+Zpep<-Zpep[row.names(pep_hxb2),]
+
+pep_hxb2<-RangedData(ranges(pep_hxb2),values(pep_hxb2),Zpep)
 
 save(pep_hxb2,file="data/pep_hxb2.rda")
 
