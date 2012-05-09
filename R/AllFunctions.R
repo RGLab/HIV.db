@@ -30,7 +30,7 @@
 }
 
 
-loadFeatures<-function()
+loadFeatures<-function(ref="env",DNA=FALSE)
 {
 #	browser()
 	HIV_db<-new.env(hash=TRUE, parent=emptyenv())
@@ -40,14 +40,37 @@ loadFeatures<-function()
 #	ret1$t_name<-tolower(ret1$t_name)
 	ret<-rbind(ret,ret1)
 	
+	#Selection of what is relevant considering the reference
+	refFeature<-subset(ret,t_name==ref)
+	#ret<-subset(ret,t_name%in%ref)
+	ret<-subset(ret,t_start>=refFeature[["t_start"]])
+	ret<-subset(ret,t_end<=refFeature[["t_end"]])
+	#Change the coordinates to AA relative to the ref
+	if(!DNA)
+	{
+		ret[["t_start"]]<-sapply(ret[["t_start"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
+		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
+	}
+	
 	assign("hxb2Table",ret,HIV_db)
 	ret<-.readTblfromHIVdb("antibody")
 	ret<-rbind(ret,.readTblfromHIVdb("bindings"))
+	
+	#Change the coordinates to AA relative to the ref
+	if(!DNA)
+	{
+		ret[["HXB2.start"]]<-sapply(ret[["HXB2.start"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
+		ret[["HXB2.end"]]<-sapply(ret[["HXB2.end"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
+	}	
+	
 	ret$X<-rownames(ret)
 	ret$MAb.Name<-sub("&","",ret$MAb.Name)
+
+	
 	assign("antibody",ret,HIV_db)
 	assign("hxb2AA",.readAASeq("hxb2_AA.fasta"),HIV_db)
 	assign("hxb2DNA",.readDNASeq("hxb2_DNA.fasta"),HIV_db)
+
 	HIV_db
 #	new("HivFeature",FeatureID=as.integer(0),name="ALL",
 #			category="hxb2",start=as.integer(1),

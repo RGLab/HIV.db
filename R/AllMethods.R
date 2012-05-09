@@ -223,12 +223,11 @@ setMethod("getEpitope",
 setMethod("getEpitope",
 		signature=signature(object="HivFeature"),
 		definition=function(object,start=NULL,end=NULL,...){
-#				browser()
 				#filter by feature coordinates
 				hxb2_range<-getHXB2Coordinates(object)
 #				ret<-subset(ret,HXB2.end>=hxb2_range[1]&HXB2.start<=hxb2_range[2])
 				start<-max(hxb2_range[1],start)
-				end<-min(hxb2_range[2],end)
+				end<-min(hxb2_range[1,][2],end)
 #				name<-list(...)$name
 #				species<-list(...)$species
 #				frame<-list(...)$frame
@@ -239,7 +238,6 @@ setMethod("getEpitope",
 setMethod("getEpitope",
 		signature=signature(object="environment"),
 		definition=function(object,start=NULL,end=NULL,name=NULL,species=NULL,frame=NULL){
-	
 							
 		#filter by start and end position
 		ret<-get("antibody",object)
