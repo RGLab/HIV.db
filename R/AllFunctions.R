@@ -30,7 +30,7 @@
 }
 
 
-loadFeatures<-function(ref="env",DNA=FALSE)
+loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 {
 #	browser()
 	HIV_db<-new.env(hash=TRUE, parent=emptyenv())
@@ -51,6 +51,13 @@ loadFeatures<-function(ref="env",DNA=FALSE)
 		ret[["t_start"]]<-sapply(ret[["t_start"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
 		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
 	}
+	if(!is.null(refScale))
+	{
+		if(ret[["t_start"]][[1]]==0){ ret[["t_start"]][[1]]=1}
+		ret[["t_start"]]<-sapply(ret[["t_start"]], function(x){min(which(refScale==x))})
+		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){min(which(refScale==x))})
+	}
+	
 	
 	assign("hxb2Table",ret,HIV_db)
 	ret<-.readTblfromHIVdb("antibody")
