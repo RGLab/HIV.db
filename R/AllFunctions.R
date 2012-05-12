@@ -69,6 +69,12 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 		ret[["HXB2.start"]]<-sapply(ret[["HXB2.start"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
 		ret[["HXB2.end"]]<-sapply(ret[["HXB2.end"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
 	}	
+	if(!is.null(refScale))
+	{
+		if(ret[["HXB2.start"]][[1]]==0){ ret[["HXB2.start"]][[1]]=1}
+		ret[["HXB2.start"]]<-sapply(ret[["HXB2.start"]], function(x){min(which(refScale==x))})
+		ret[["HXB2.end"]]<-sapply(ret[["HXB2.end"]], function(x){min(which(refScale==x))})
+	}
 	
 	ret$X<-rownames(ret)
 	ret$MAb.Name<-sub("&","",ret$MAb.Name)
