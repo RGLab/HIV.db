@@ -37,7 +37,6 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 	ret<-.readTblfromHIVdb(tblname="hxb2Table")
 	ret<-subset(ret,t_category!="internal")
 	ret1<-.readTblfromHIVdb("gpadditional")
-#	ret1$t_name<-tolower(ret1$t_name)
 	ret<-rbind(ret,ret1)
 	
 	#Selection of what is relevant considering the reference
@@ -55,7 +54,7 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 	{
 		if(ret[["t_start"]][[1]]==0){ ret[["t_start"]][[1]]=1}
 		ret[["t_start"]]<-sapply(ret[["t_start"]], function(x){min(which(refScale==x))})
-		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){min(which(refScale==x))})
+		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){min(which(refScale==x),length(refScale))})
 	}
 	
 	
@@ -73,7 +72,7 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 	{
 		if(ret[["HXB2.start"]][[1]]==0){ ret[["HXB2.start"]][[1]]=1}
 		ret[["HXB2.start"]]<-sapply(ret[["HXB2.start"]], function(x){min(which(refScale==x))})
-		ret[["HXB2.end"]]<-sapply(ret[["HXB2.end"]], function(x){min(which(refScale==x))})
+		ret[["HXB2.end"]]<-sapply(ret[["HXB2.end"]], function(x){min(which(refScale==x),length(refScale))})
 	}
 	
 	ret$X<-rownames(ret)
