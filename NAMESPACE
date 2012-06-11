@@ -5,5 +5,5 @@ importFrom(Biostrings,read.DNAStringSet,read.AAStringSet,AAString)
 importFrom(IRanges,IRanges,DataFrame,Rle,values,"values<-",split,ranges,start,end,substr,subseq)
 exportClasses(HivFeature,Epitope)
 exportMethods(show,getChildren,getParent,getEpitope,getFeature,getAA,getDNA,getName,getHXB2Coordinates,getFrame)
-export(loadFeatures,lsCategory)
+export(loadFeatures,lsCategory,coord2ext)
 

@@ -32,7 +32,6 @@
 
 loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 {
-#	browser()
 	HIV_db<-new.env(hash=TRUE, parent=emptyenv())
 	ret<-.readTblfromHIVdb(tblname="hxb2Table")
 	ret<-subset(ret,t_category!="internal")
@@ -52,9 +51,8 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 	}
 	if(!is.null(refScale))
 	{
-		if(ret[["t_start"]][[1]]==0){ ret[["t_start"]][[1]]=1}
-		ret[["t_start"]]<-sapply(ret[["t_start"]], function(x){min(which(refScale==x))})
-		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){min(which(refScale==x),length(refScale))})
+		ret[["t_start"]]<-coord2ext(ret[["t_start"]],refScale)
+		ret[["t_end"]]<-coord2ext(ret[["t_end"]], refScale)
 	}
 	
 	
@@ -70,9 +68,8 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 	}	
 	if(!is.null(refScale))
 	{
-		if(ret[["HXB2.start"]][[1]]==0){ ret[["HXB2.start"]][[1]]=1}
-		ret[["HXB2.start"]]<-sapply(ret[["HXB2.start"]], function(x){min(which(refScale==x))})
-		ret[["HXB2.end"]]<-sapply(ret[["HXB2.end"]], function(x){min(which(refScale==x),length(refScale))})
+		ret[["HXB2.start"]]<-coord2ext(ret[["HXB2.start"]], refScale)
+		ret[["HXB2.end"]]<-coord2ext(ret[["HXB2.end"]], refScale)
 	}
 	
 	ret$X<-rownames(ret)
@@ -97,7 +94,6 @@ lsCategory<-function(HIV_db)
 #when range is provided,return all the features that have intersections with the range
 .getFeature<-function(HIV_db,category=NULL,name=NULL,start=NULL,end=NULL,frame=NULL,...)
 {
-#	browser()
 	###if category is epitope then call getEpitope method to query antibodybinding table
 	if(!is.null(category)&&tolower(category)=="epitope")
 		return(getEpitope(HIV_db,name=name,start=start,end=end,frame=frame,...))
@@ -125,7 +121,6 @@ lsCategory<-function(HIV_db)
 #		len<-nrow(ret)
 #		ret<-ret[order(ret$t_start)[len],]#get the closest one	
 	}
-#	browser()
 	ret<-HivFeature(ret,HIV_db)
 	
 #	if(children)
@@ -141,4 +136,45 @@ lsCategory<-function(HIV_db)
 	ret
 	
 }
+
+
+
+
+###
+# Convert the coordinates of an object into the extended coordinate system
+###
+setGeneric("coord2ext", def=function(obj, refScale) standardGeneric("coord2ext"))
+
+setMethod("coord2ext", signature=(obj="numeric"), function(obj, refScale)
+		{
+			extVec<-sapply(obj, function(x){
+						min(
+								if(x<0)
+									x
+								else if(x==0)
+									which(refScale==1)
+								else if(x>refScale[length(refScale)])
+									which(refScale==refScale[length(refScale)])
+								else if(length(which(refScale==x)))
+									which(refScale==x)
+								else
+									NaN
+						)})#sapply#function#min
+			extVec<-extVec[!is.na(extVec)]
+			return(extVec)
+		})
+
+
+
+setMethod("coord2ext", signature=(obj="RangedData"), function(obj, refScale)
+		{
+			if(start(obj)[[1]]==0) { start(obj)[[1]]=1 } #To avoid Inf values
+			
+			extStart<-coord2ext(start(obj),refScale)
+			extEnd<-coord2ext(end(obj),refScale)
+			#assign new start coordinates after end to avoid width<0 issues
+			end(obj)<-extEnd	
+			start(obj)<-extStart
+			return(obj)
+		})
 
