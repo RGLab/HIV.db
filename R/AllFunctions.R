@@ -30,13 +30,20 @@
 }
 
 
-loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
-{
+loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")	
+{	
 	HIV_db<-new.env(hash=TRUE, parent=emptyenv())
-	ret<-.readTblfromHIVdb(tblname="hxb2Table")
+	
+	tableName<-paste(genome,"Table", sep="")
+	ret<-.readTblfromHIVdb(tblname=tableName)
+#	ret<-.readTblfromHIVdb(tblname="hxb2Table")
 	ret<-subset(ret,t_category!="internal")
-	ret1<-.readTblfromHIVdb("gpadditional")
-	ret<-rbind(ret,ret1)
+	
+	if(genome=="hxb2") ###
+	{
+	  ret1<-.readTblfromHIVdb("gpadditional")
+	  ret<-rbind(ret,ret1)
+    }
 	
 	#Selection of what is relevant considering the reference
 	refFeature<-subset(ret,t_name==ref)
@@ -55,8 +62,10 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 		ret[["t_end"]]<-coord2ext(ret[["t_end"]], refScale)
 	}
 	
-	
-	assign("hxb2Table",ret,HIV_db)
+	assign(tableName,ret,HIV_db) ###
+#	assign("hxb2Table",ret,HIV_db)
+	if(genome=="hxb2") ###
+	{
 	ret<-.readTblfromHIVdb("antibody")
 	ret<-rbind(ret,.readTblfromHIVdb("bindings"))
 	
@@ -77,13 +86,16 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL)
 
 	
 	assign("antibody",ret,HIV_db)
-	assign("hxb2AA",.readAASeq("hxb2_AA.fasta"),HIV_db)
-	assign("hxb2DNA",.readDNASeq("hxb2_DNA.fasta"),HIV_db)
+    } ### 
+	AAName<-paste(genome,"AA",sep="")
+	DNAName<-paste(genome,"DNA",sep="")
+	AAfasta<-paste(genome,"_AA.fasta",sep="")
+	DNAfasta<-paste(genome,"_DNA.fasta",sep="")
+	assign(AAName,.readAASeq(AAfasta),HIV_db)
+	assign(DNAName,.readAASeq(DNAfasta),HIV_db)
+
 
 	HIV_db
-#	new("HivFeature",FeatureID=as.integer(0),name="ALL",
-#			category="hxb2",start=as.integer(1),
-#			end=as.integer(9719),HIV_db=HIV_db)
 }
 
 lsCategory<-function(HIV_db)
@@ -92,13 +104,15 @@ lsCategory<-function(HIV_db)
 	unique(tbl$t_category)
 }
 #when range is provided,return all the features that have intersections with the range
-.getFeature<-function(HIV_db,category=NULL,name=NULL,start=NULL,end=NULL,frame=NULL,...)
+.getFeature<-function(HIV_db,category=NULL,name=NULL,start=NULL,end=NULL,frame=NULL, genome="hxb2",...)
 {
+	
 	###if category is epitope then call getEpitope method to query antibodybinding table
 	if(!is.null(category)&&tolower(category)=="epitope")
 		return(getEpitope(HIV_db,name=name,start=start,end=end,frame=frame,...))
 	####otherwise, query hxb2Table
-	tbl<-get("hxb2Table",HIV_db)
+	tableName<-paste(genome,"Table", sep="") ###
+	tbl<-get(tableName,HIV_db)
 	ret<-tbl
 	if(!is.null(frame))
 		ret<-subset(ret,t_frame%in%frame)

@@ -49,10 +49,10 @@ library(HIV.db)
 
 \section{Load HIV feature database}
 \Rfunction{loadFeatures} function load the HIV feature database into memory.In the current version it simply returns an environment
-that stores all the data tables read from the data files. In the future it is going to the database connection that connect to the feature dabase in the back end. 
+that stores all the data tables read from the data files. In the future it is going to the database connection that connect to the feature database in the back end. 
 
 <<loadFeatures, eval=T, echo=TRUE,results=verbatim>>=
-HIV_db<-loadFeatures()
+HIV_db<-loadFeatures(ref="ref")
 @
 
 After the database is loaded, users can explore the database by \Rfunction{loadFeatures}, which lists the types of features availabe in the database for query.

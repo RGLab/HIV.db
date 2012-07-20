@@ -8,7 +8,7 @@
 ##############################
 library(gdata)
 library(HIV.db)
-path=system.file("raw",package="HIV.db")
+path=system.file("extdata/raw",package="HIV.db")
 hxb2<-read.xls(paste(path,"hxb2.xls",sep="/"))
 
 gene<-subset(hxb2,!gene%in%c("",1:1000),select=c("gene"))
