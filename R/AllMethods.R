@@ -386,7 +386,6 @@ setMethod("getAA",
 				start<-AA_range[1]
 				end<-AA_range[2]
 	#			getAA(getHIVdb(object),start=start,end=end,name=getName(curNode))
-#				browser()
 	
 				parentSeq<-getAA(getHIVdb(curF),name=getName(curNode))
 				if(!is.null(parentSeq))

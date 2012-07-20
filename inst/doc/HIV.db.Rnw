@@ -48,16 +48,22 @@ library(HIV.db)
 @
 
 \section{Load HIV feature database}
-\Rfunction{loadFeatures} function load the HIV feature database into memory.In the current version it simply returns an environment
-that stores all the data tables read from the data files. In the future it is going to the database connection that connect to the feature database in the back end. 
+%\Rfunction{loadFeatures} function load the HIV feature database into memory.In the current version it simply returns an environment
+%that stores all the data tables read from the data files. In the future it is going to the database connection that connect to the feature database in the back end. 
+\Rfunction{loadFeatures} function load the feature database for the selected genome and element into memory. The returned \Robject{environment} will contain the chosen reference element and its children features. The ranges of the features are given by default in amino acid coordinates relative to the reference.
 
 <<loadFeatures, eval=T, echo=TRUE,results=verbatim>>=
-HIV_db<-loadFeatures(ref="ref")
+HIV_env<-loadFeatures(ref="env")
 @
 
-After the database is loaded, users can explore the database by \Rfunction{loadFeatures}, which lists the types of features availabe in the database for query.
+Alternately, \Rfunction{loadFeatures} can load features in DNA coordinates relative to the full genome. 
+<<loadFeaures-DNA, eval=T, echo=TRUE, results=verbatim>>=
+HIV_gag<-loadFeatures(ref="gag", DNA=TRUE)
+@
+
+After the database is loaded, users can explore the database by \Rfunction{lsCategory}, which lists the types of features availabe in the database for query.
 <<lsCategory, echo=true, results=verbatim>>=
-lsCategory(HIV_db)
+lsCategory(HIV_env)
 @
 
 
@@ -66,34 +72,35 @@ The package provides two query methods:\Rfunction{getFeature} for HIV features a
 Different HIV genes,proteins or viral regions can be searched by their names or categories:
 
 <<getFeature-name, echo=true, results=hide>>=
-getFeature(HIV_db, name=c("gp120","gp41"))
-getFeature(HIV_db, category="loop")
-feature1<-getFeature(HIV_db, name="pol")
+getFeature(HIV_env, name=c("gp120","gp41"))
+getFeature(HIV_env, category="loop")
+feature1<-getFeature(HIV_env, name="gp120")
 @
 
 and filter the query results further by the reading frames.
 
 <<getFeature-frame, echo=true, results=verbatim>>=
-getFeature(HIV_db, category=c("gene"),frame=3)
+getFeature(HIV_env, category=c("gene"),frame=3)
 @
 
 hxb2 coordinates can also be used to specify the start and end nucleotide positions.
 
 <<getFeature-coordinate, echo=true, results=hide>>=
-getFeature(HIV_db,start=7100,end=7200)
+getFeature(HIV_gag)
+getFeature(HIV_gag,start=790,end=2000)
 @
 
 The same query can be done to the epitope database by \Rfunction{getEpitope} method execpt that it takes an extra
 arugment \Robject{species}.
 
 <<getEpitope, echo=true, results=verbatim>>=
-getEpitope(HIV_db,start=4240,end=5096,species="mouse",name="4D6",frame=3)
+getEpitope(HIV_gag,start=4240,end=5096,species="mouse",name="4D6",frame=3)
 @
 
 \Rfunction{getEpitope} also takes a \Robject{HivFeature} object as input and use the HXB2 coordinates range to get the appropriate epitopes. 
 
 <<getEpitope-feature, echo=true, results=verbatim>>=
-feature2<-getFeature(HIV_db, name="p7")
+feature2<-getFeature(HIV_gag, name="p7")
 getEpitope(feature2, species="mouse") 
 @ 
  
@@ -103,15 +110,15 @@ HivFeatures have the parent or children features based on the relative positions
 We provide two methods to query the children or parent features: \Rfunction{getChildren} and \Rfunction{getParent}.
 
 <<getChildren, echo=true, results=hide>>=
-feature3<-getFeature(HIV_db, name="gag")
+feature3<-getFeature(HIV_gag, name="gag")
 getChildren(feature3)
 @
 
 <<getParent, echo=true, results=verbatim>>=
-feature4<-getFeature(HIV_db, name="p24")
+feature4<-getFeature(HIV_gag, name="p24")
 getParent(feature4)
 
-feature5<-getFeature(HIV_db, name="V1")
+feature5<-getFeature(HIV_env, name="V1")
 getParent(feature5)
 @
 
@@ -119,6 +126,8 @@ When \Robject{recursive} is set as \Robject{TRUE},all the descendants or ancesto
 
 <<getParent-recur, echo=true, results=verbatim>>=
 getParent(feature5,recursive=TRUE)
+
+
 getChildren(feature1,recursive=TRUE)
 @
 
@@ -131,14 +140,14 @@ getAA(feature4)
 getDNA(feature4)
 @
 
-or by providing database environment and feature name and hxb2 coornidates range to \Rfunction{getAA} method:
+or by providing database environment and hxb2 coornidates range to \Rfunction{getAA} method:
 
 <<getAA-other, echo=true, results=hide>>=
-getAA(HIV_db,name="pol")
+#%getAA(HIV_gag,name="pol")
 
-getDNA(HIV_db,start=1921,end=2085)
+getDNA(HIV_gag,start=1921,end=2085)
 
-getDNA(feature5,start=1921,end=2095)
+getDNA(feature4,start=1500,end=1615)
 @
 
 Note that both methods can take a list of \Robject{HivFeature} objects as the input and return the their sequences respectively.
