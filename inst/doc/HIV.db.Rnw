@@ -1,6 +1,3 @@
-% NOTE -- ONLY EDIT THE .Rnw FILE!!!  The .tex file is
-% likely to be overwritten.
-%
 %\VignetteIndexEntry{HIV features database and query APIs}
 %\VignetteDepends{}
 %\VignetteKeywords{HIV,annotation,Epitope}
@@ -140,10 +137,10 @@ getAA(feature4)
 getDNA(feature4)
 @
 
-or by providing database environment and hxb2 coornidates range to \Rfunction{getAA} method:
+or by providing database environment and a feature and hxb2 coornidates range to \Rfunction{getAA} method:
 
-<<getAA-other, echo=true, results=hide>>=
-#%getAA(HIV_gag,name="pol")
+<<getAA-other, echo=TRUE, results=hide>>=
+getAA(HIV_gag,name="pol")
 
 getDNA(HIV_gag,start=1921,end=2085)
 
@@ -158,7 +155,7 @@ getDNA(getChildren(feature3))
 @ 
 
 \section{conclusion}
-THe package allows users to query the built-in HIV features database for the important information about HIV gene and gene product as well as genomic structure elements.   
+The package allows users to query the built-in HIV features database for the important information about HIV gene and gene product as well as genomic structure elements.   
 
 \section{Reference}
 

@@ -14,11 +14,12 @@
 
 ##the ranges information for each sequence are not meaningful here 
 ##since it is simply calculated from the sequential positions of these sequences from fasta file
-.readAASeq<-function(fileName)
+.readAASeq<-function(fileName, genome="hxb2")
 {
 	seqfile <- system.file("extdata/parsed",fileName ,package="HIV.db")
 	ret<-read.AAStringSet(seqfile)
-	names(ret)<-tolower(sub("HXB2_AA_","",names(ret)))#strip the prefix
+	prefix<-paste(toupper(genome), "_AA_", sep="")
+	names(ret)<-tolower(sub(prefix,"",names(ret)))#strip the prefix
 	ret
 	
 }
@@ -91,8 +92,8 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	DNAName<-paste(genome,"DNA",sep="")
 	AAfasta<-paste(genome,"_AA.fasta",sep="")
 	DNAfasta<-paste(genome,"_DNA.fasta",sep="")
-	assign(AAName,.readAASeq(AAfasta),HIV_db)
-	assign(DNAName,.readAASeq(DNAfasta),HIV_db)
+	assign(AAName,.readAASeq(AAfasta, genome),HIV_db)
+	assign(DNAName,.readAASeq(DNAfasta, genome),HIV_db)
 
 
 	HIV_db

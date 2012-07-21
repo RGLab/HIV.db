@@ -120,8 +120,9 @@ setMethod("getHIVdb",
 
 setMethod("getHXB2Table",
 		signature=signature(object="HivFeature"),
-		definition=function(object){		
-			get("hxb2Table",getHIVdb(object))
+		definition=function(object, genome="hxb2"){	
+			tableName<-paste(genome,"Table", sep="")
+			get(tableName,getHIVdb(object))
 		})
 
 setMethod("getAntibodyTable",
@@ -141,12 +142,12 @@ setMethod("getAntibodyTable",
 
 setMethod("getChildren",
 		signature=signature(object="HivFeature"),
-		definition=function(object,...){		
+		definition=function(object, genome="hxb2",...){		
 
 
 			category<-list(...)$category
 			recursive=list(...)$recursive
-			ret<-getHXB2Table(object)
+			ret<-getHXB2Table(object, genome)
 #			
 			if(!is.null(category))
 				ret<-subset(ret,t_category%in%category)
@@ -184,10 +185,10 @@ setMethod("getChildren",
 	
 setMethod("getParent",
 		signature=signature(object="HivFeature"),
-		definition=function(object,...){
+		definition=function(object, genome="hxb2", ...){
 #			db=list(...)$db
 
-			db<-getHXB2Table(object)
+			db<-getHXB2Table(object, genome)
 			recursive=list(...)$recursive
 			if(is.null(recursive))
 				recursive<-FALSE
@@ -277,9 +278,10 @@ setMethod("getFeature",
 
 setMethod("getDNA",
 		signature=signature(object="environment"),
-		definition=function(object,...){
+		definition=function(object, genome="hxb2", ...){
 			start=list(...)$start
 			end=list(...)$end
+			DNAName<-paste(genome,"DNA",sep="")
 			subseq(get("hxb2DNA",object)[[1]],start,end)
 #			ret<-substr(get("hxb2DNA",object),start,end)
 #			names(ret)<-""
@@ -292,7 +294,7 @@ setMethod("getDNA",
 
 setMethod("getDNA",
 		signature=signature(object="HivFeature"),
-		definition=function(object,...){
+		definition=function(object,genome="hxb2",...){
 #			browser()
 	DNA_list<-lapply(seq_along(1:nrow(object)),function(i){
 #				browser()
@@ -305,7 +307,7 @@ setMethod("getDNA",
 			start<-max(start,hxb2_range[1])
 			end<-min(end,hxb2_range[2])
 			
-			getDNA(getHIVdb(object),start=start,end=end)
+			getDNA(getHIVdb(object),start=start,end=end,genome)
 			
 		})
 	names(DNA_list)<-getName(object)
@@ -327,7 +329,7 @@ setMethod("isRoot",
 
 setMethod("getAA",
 		signature=signature(object="environment"),
-		definition=function(object,...){
+		definition=function(object, genome="hxb2", ...){
 			
 			name=tolower(list(...)$name)
 			##currently only query the Full AA sequence 
@@ -336,20 +338,19 @@ setMethod("getAA",
 #			ret<-substr(get("hxb2AA",object)[[name]],start,end)
 #			names(ret)<-""
 #			browser()
-			seqSet<-get("hxb2AA",object)
+			AAName<-paste(genome, "AA", sep="")
+			seqSet<-get(AAName,object)
 			if(name%in%names(seqSet))
 #				return(as.character(get("hxb2AA",object)[[name]]))
-				get("hxb2AA",object)[[name]]
+				get(AAName,object)[[name]]
 			else
 				return(NULL)
 		})
 
 
-
-
 setMethod("getAA",
 		signature=signature(object="HivFeature"),
-		definition=function(object,...){
+		definition=function(object, genome="hxb2", ...){
 			
 	AA_list<-lapply(seq_along(1:nrow(object)),function(i){
 				curF<-object[i,]
@@ -359,7 +360,7 @@ setMethod("getAA",
 	#			browser()
 				while(!isRoot(curNode))
 				{
-					curNode<-getParent(curNode)	
+					curNode<-getParent(curNode, genome)	
 				}
 				
 				offset<-getHXB2Coordinates(curNode)[1]
@@ -386,8 +387,9 @@ setMethod("getAA",
 				start<-AA_range[1]
 				end<-AA_range[2]
 	#			getAA(getHIVdb(object),start=start,end=end,name=getName(curNode))
+#				browser()
 	
-				parentSeq<-getAA(getHIVdb(curF),name=getName(curNode))
+				parentSeq<-getAA(getHIVdb(curF),name=getName(curNode), genome)
 				if(!is.null(parentSeq))
 					substr(parentSeq,start,end)
 				else
