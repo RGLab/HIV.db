@@ -94,6 +94,7 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	DNAfasta<-paste(genome,"_DNA.fasta",sep="")
 	assign(AAName,.readAASeq(AAfasta, genome),HIV_db)
 	assign(DNAName,.readAASeq(DNAfasta, genome),HIV_db)
+	assign("genome", genome, HIV_db) #keep track of the genome
 
 
 	HIV_db
@@ -105,13 +106,14 @@ lsCategory<-function(HIV_db)
 	unique(tbl$t_category)
 }
 #when range is provided,return all the features that have intersections with the range
-.getFeature<-function(HIV_db,category=NULL,name=NULL,start=NULL,end=NULL,frame=NULL, genome="hxb2",...)
+.getFeature<-function(HIV_db,category=NULL,name=NULL,start=NULL,end=NULL,frame=NULL,...)
 {
 	
 	###if category is epitope then call getEpitope method to query antibodybinding table
 	if(!is.null(category)&&tolower(category)=="epitope")
 		return(getEpitope(HIV_db,name=name,start=start,end=end,frame=frame,...))
 	####otherwise, query hxb2Table
+	genome<-getGenome(HIV_db)
 	tableName<-paste(genome,"Table", sep="") ###
 	tbl<-get(tableName,HIV_db)
 	ret<-tbl

@@ -34,7 +34,7 @@ setGeneric("getEpitope",
 
 
 setGeneric("getHXB2Table", 
-		function(object,genome="hxb2")
+		function(object)
 			standardGeneric("getHXB2Table"))
 
 
@@ -55,7 +55,7 @@ setGeneric("EpitopeList",
 			standardGeneric("EpitopeList"))
 
 setGeneric("getChildren", 
-		function(object,genome="hxb2",...)
+		function(object,...)
 			standardGeneric("getChildren"))
 
 setGeneric("getParent", 
@@ -63,9 +63,13 @@ setGeneric("getParent",
 			standardGeneric("getParent"))
 
 setGeneric("getDNA", 
-		function(object,genome="hxb2",...)
+		function(object,...)
 			standardGeneric("getDNA"))
 
 setGeneric("getAA", 
-		function(object,genome="hxb2",...)
+		function(object,...)
 			standardGeneric("getAA"))
+
+setGeneric("getGenome",
+		function(object,...)
+			standardGeneric("getGenome"))

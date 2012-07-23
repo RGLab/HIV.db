@@ -83,7 +83,6 @@ getFeature(HIV_env, category=c("gene"),frame=3)
 hxb2 coordinates can also be used to specify the start and end nucleotide positions.
 
 <<getFeature-coordinate, echo=true, results=hide>>=
-getFeature(HIV_gag)
 getFeature(HIV_gag,start=790,end=2000)
 @
 
