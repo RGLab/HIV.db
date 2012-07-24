@@ -70,7 +70,8 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	{
 	ret<-.readTblfromHIVdb("antibody")
 	ret<-rbind(ret,.readTblfromHIVdb("bindings"))
-	
+	ret<-subset(ret,HXB2.start>=refFeature[["t_start"]])
+	ret<-subset(ret,HXB2.end<=refFeature[["t_end"]])
 	#Change the coordinates to AA relative to the ref
 	if(!DNA)
 	{
