@@ -54,6 +54,7 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	#Change the coordinates to AA relative to the ref
 	if(!DNA)
 	{
+		ret<-subset(ret,t_frame==refFeature[["t_frame"]])
 		ret[["t_start"]]<-sapply(ret[["t_start"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
 		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
 	}
@@ -73,6 +74,7 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	#Change the coordinates to AA relative to the ref
 	if(!DNA)
 	{
+		ret<-subset(ret,t_frame==refFeature[["t_frame"]])
 		ret[["HXB2.start"]]<-sapply(ret[["HXB2.start"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
 		ret[["HXB2.end"]]<-sapply(ret[["HXB2.end"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
 	}	
