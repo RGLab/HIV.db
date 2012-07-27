@@ -118,7 +118,7 @@ setMethod("getHIVdb",
 			object@HIV_db
 		})
 
-setMethod("getHXB2Table",
+setMethod("getAnnotationTable",
 		signature=signature(object="HivFeature"),
 		definition=function(object){
 			genome<-getGenome(object)
@@ -148,7 +148,7 @@ setMethod("getChildren",
 
 			category<-list(...)$category
 			recursive=list(...)$recursive
-			ret<-getHXB2Table(object)
+			ret<-getAnnotationTable(object)
 #			
 			if(!is.null(category))
 				ret<-subset(ret,t_category%in%category)
@@ -189,7 +189,7 @@ setMethod("getParent",
 		definition=function(object, ...){
 #			db=list(...)$db
 
-			db<-getHXB2Table(object)
+			db<-getAnnotationTable(object)
 			recursive=list(...)$recursive
 			if(is.null(recursive))
 				recursive<-FALSE
@@ -246,9 +246,9 @@ setMethod("getEpitope",
 #		start=list(...)$start
 #		end=list(...)$end
 		if(!is.null(start))
-			ret<-subset(ret,HXB2.end>=start)
+			ret<-subset(ret,end>=start)
 		if(!is.null(end))
-			ret<-subset(ret,HXB2.start<=end)
+			ret<-subset(ret,start<=end)
 	
 #		name<-list(...)$name
 		if(!is.null(name))
@@ -432,3 +432,33 @@ setMethod("getGenome",
 		definition=function(object, ...){
 			return(getGenome(getHIVdb(object)))
 		})
+
+
+# Input: A DataFrame like pep_hxb2 or pep_mac239
+#        The only requirements are petides as rownames and a `clade` column
+# Output: matrix of logical with peptides as rownames and clades as colnames
+setMethod("clade",
+		signature=signature(object="RangedData"),
+		definition=function(object)
+{
+	cladeList<-unique(unlist(strsplit(levels(as.factor(object$clade)),",")))
+	len<-length(rownames(object))
+	retMatrix<-c()
+	for(pepIdx in 1:len)
+	{
+		pepClades<-unlist(strsplit(object[pepIdx,]$clade, split=","))
+		tmpList<-lapply(cladeList, function(x)
+				{
+					if(x %in% pepClades)
+						TRUE
+					else
+						FALSE
+				})
+		retMatrix<-c(retMatrix, tmpList)
+	}
+	dim(retMatrix)<-c(length(cladeList), len)
+	retMatrix<-t(retMatrix)
+	rownames(retMatrix)<-rownames(object)
+	colnames(retMatrix)<-cladeList
+	return(retMatrix)
+})

@@ -50,14 +50,7 @@ setClass("HivFeature",
 );
 
 #constructor for data.frame
-HivFeature<-function(object,HIV_db){	
-			
-#		lapply(1:nrow(object),function(i){
-#			new("HivFeature",FeatureID=object[i,"t_ID"],name=object[i,"t_name"],
-#					category=object[i,"t_category"],start=object[i,"t_start"],
-#					end=object[i,"t_end"],parentID=object[i,"t_parentID"],frame=object[i,"t_frame"],HIV_db=HIV_db)
-#		})
-#			browser()
+HivFeature<-function(object,HIV_db){
 			if(nrow(object)>0)
 			{
 				ir<-IRanges(start=object[,"t_start"]
@@ -102,18 +95,11 @@ setClass("Epitope",
 		,contains="HivFeature"
 );
 #constructor for Epitope from data.frame
-Epitope<-function(object,HIV_db){	
-#			browser()
-#			lapply(1:nrow(object),function(i){
-#						new("Epitope",FeatureID=as.integer(object[i,"X"]),name=object[i,"MAb.Name"],
-#								category="Epitope",start=object[i,"HXB2.start"],
-#								end=object[i,"HXB2.end"],frame=object[i,"t_frame"],HIV_db=HIV_db,
-#								Epitope=object[i,"Epitope"],Species=object[i,"Species"],Subtype=object[i,"Subtype"])
-#					})
+Epitope<-function(object,HIV_db){
 			if(nrow(object)>0)
 			{
-				ir<-IRanges(start=object[,"HXB2.start"]
-						,end=object[,"HXB2.end"]
+				ir<-IRanges(start=object[,"start"]
+						,end=object[,"end"]
 #						,name=object[,"MAb.Name"]
 						)
 				df<-DataFrame(FeatureID=object[,"X"]
@@ -125,7 +111,6 @@ Epitope<-function(object,HIV_db){
 						,Species=object[,"Species"]
 						,Subtype=object[,"Subtype"]
 				)
-#				browser()
 				rownames(df) <- names(ir) ## ensure these are identical
 				#			N <- sum(elementLengths(ir))
 				space <- Rle(factor("1"))

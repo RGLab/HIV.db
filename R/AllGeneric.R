@@ -33,7 +33,7 @@ setGeneric("getEpitope",
 			standardGeneric("getEpitope"))
 
 
-setGeneric("getHXB2Table", 
+setGeneric("getAnnotationTable", 
 		function(object)
 			standardGeneric("getHXB2Table"))
 
@@ -73,3 +73,7 @@ setGeneric("getAA",
 setGeneric("getGenome",
 		function(object,...)
 			standardGeneric("getGenome"))
+
+setGeneric("clade",
+		function(object)
+			standardGeneric("clade"))

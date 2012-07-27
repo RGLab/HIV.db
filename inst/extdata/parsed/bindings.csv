@@ -1,4 +1,4 @@
-"Protein","Epitope","MAb.Name","HXB2.start","HXB2.end","Subtype","Species","t_frame"
+"Protein","Epitope","MAb.Name","start","end","Subtype","Species","t_frame"
 "gp120","GPGR","447D",7158,7167,"","mouse",3
 "gp120","HEDIISLW","F105",6537,6558,"","mouse",3
 "gp120","VST","F105",6987,6993,"","mouse",3

@@ -1,4 +1,4 @@
-"Protein","Epitope","MAb.Name","HXB2.start","HXB2.end","Subtype","Species","t_frame"
+"Protein","Epitope","MAb.Name","start","end","Subtype","Species","t_frame"
 "gp160","TEKLWVTVYYGVPVWKEATT","7E2/4",6315,6372,"B","mouse",3
 "gp160","ACVPTDPNPQ","D/3G5",6441,6468,"B","mouse",3
 "gp160","ENFDMWKNDM","133/192",6495,6522,"B","mouse",3
