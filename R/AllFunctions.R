@@ -112,7 +112,6 @@ lsCategory<-function(HIV_db)
 #when range is provided,return all the features that have intersections with the range
 .getFeature<-function(HIV_db,category=NULL,name=NULL,start=NULL,end=NULL,frame=NULL,...)
 {
-	
 	###if category is epitope then call getEpitope method to query antibodybinding table
 	if(!is.null(category)&&tolower(category)=="epitope")
 		return(getEpitope(HIV_db,name=name,start=start,end=end,frame=frame,...))

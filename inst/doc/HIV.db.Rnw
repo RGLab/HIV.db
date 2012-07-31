@@ -58,6 +58,12 @@ Alternately, \Rfunction{loadFeatures} can load features in DNA coordinates relat
 HIV_gag<-loadFeatures(ref="gag", DNA=TRUE)
 @
 
+At the moment, two genomes are available. hxb2 is the one loaded by default but
+it can be changed for mac239 using the genome argument.
+<<loadFeatures-genome, eval=T, echo=TRUE, results=verbatim>>=
+SIV_env<-loadFeatures(genome="mac239")
+@
+
 After the database is loaded, users can explore the database by \Rfunction{lsCategory}, which lists the types of features availabe in the database for query.
 <<lsCategory, echo=true, results=verbatim>>=
 lsCategory(HIV_env)

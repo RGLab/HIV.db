@@ -442,8 +442,11 @@ setMethod("clade",
 		definition=function(object)
 {
 	cladeList<-unique(unlist(strsplit(levels(as.factor(object$clade)),",")))
-	len<-length(rownames(object))
+	len<-nrow(object)
 	retMatrix<-c()
+	s2<-system.time(
+			{
+				
 	for(pepIdx in 1:len)
 	{
 		pepClades<-unlist(strsplit(object[pepIdx,]$clade, split=","))
@@ -456,9 +459,14 @@ setMethod("clade",
 				})
 		retMatrix<-c(retMatrix, tmpList)
 	}
+	})#s2
+
+	print(c(s2))
+
 	dim(retMatrix)<-c(length(cladeList), len)
 	retMatrix<-t(retMatrix)
 	rownames(retMatrix)<-rownames(object)
 	colnames(retMatrix)<-cladeList
+
 	return(retMatrix)
 })

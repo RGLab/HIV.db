@@ -1,7 +1,7 @@
 library(gdata)
 library(Biostrings)
  
-JPTdesign<-read.xls("~/rglab/workspace/HIV.db/inst/extdata/JPT_Annotation_gp160_slide_18Mar11.xls")
+JPTdesign<-read.xls("~/Programs/git/HIV.db/inst/extdata/JPT_Annotation_gp160_slide_18Mar11.xls")
 #########################################################
 ##1.pair wise alignment of consecutive peptide sequence to construct entire clade sequence
 #######################################################
@@ -66,7 +66,7 @@ substrEx<-function(x,start,len,ignore="-"){
 
 
 ##read multi_aligned clade sequences from MUSCEL
-clade_seqs<-readFASTA(file="~/rglab/workspace/HIV.db/inst/extdata/MuscleMultipleAlignment.fasta")
+clade_seqs<-readFASTA(file="~/Programs/git/HIV.db/inst/extdata/MuscleMultipleAlignment.fasta")
 cladeNames<-unlist(lapply(clade_seqs,"[[",1))
 clade_seqs<-unlist(lapply(clade_seqs,"[[",2))
 names(clade_seqs)<-cladeNames

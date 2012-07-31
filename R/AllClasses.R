@@ -51,6 +51,7 @@ setClass("HivFeature",
 
 #constructor for data.frame
 HivFeature<-function(object,HIV_db){
+	browser()
 			if(nrow(object)>0)
 			{
 				ir<-IRanges(start=object[,"t_start"]
@@ -62,7 +63,6 @@ HivFeature<-function(object,HIV_db){
 						,category=object[,"t_category"]
 						,parentID=object[,"t_parentID"]
 						,frame=object[,"t_frame"])
-#				browser()
 				rownames(df) <- names(ir) ## ensure these are identical
 				#			N <- sum(elementLengths(ir))
 				space <- Rle(factor("1"))
