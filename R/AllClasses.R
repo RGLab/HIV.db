@@ -51,7 +51,6 @@ setClass("HivFeature",
 
 #constructor for data.frame
 HivFeature<-function(object,HIV_db){
-	browser()
 			if(nrow(object)>0)
 			{
 				ir<-IRanges(start=object[,"t_start"]

@@ -72,15 +72,6 @@ setMethod("getName",
 			values(object)[[1]][,"name"]
 		})
 
-#setMethod("getName",
-#		signature=signature(object="Epitope"),
-#		definition=function(object){		
-##			object@name
-##			browser()
-##			names(ranges(object)[[1]])
-#			values(object)[[1]][,"MAb.Name"]
-#			
-#		})
 
 #to be deprecated 		
 setMethod("getName",
@@ -132,15 +123,6 @@ setMethod("getAntibodyTable",
 			get("antibody",getHIVdb(object))
 		})
 
-
-#setMethod("getChildren",
-#		signature=signature(object="list"),
-#		definition=function(object,...){		
-##			browser()
-#			lapply(object,getChildren,...)
-#			
-#		})
-
 setMethod("getChildren",
 		signature=signature(object="HivFeature"),
 		definition=function(object,...){		
@@ -173,16 +155,6 @@ setMethod("getChildren",
 			ret
 	
 	})
-
-
-	
-#setMethod("getParent",
-#		signature=signature(object="list"),
-#		definition=function(object,...){		
-#			
-#			lapply(object,getParent,...)
-#			
-#		})	
 	
 setMethod("getParent",
 		signature=signature(object="HivFeature"),
@@ -233,7 +205,6 @@ setMethod("getEpitope",
 #				name<-list(...)$name
 #				species<-list(...)$species
 #				frame<-list(...)$frame
-#			browser()
 				getEpitope(getHIVdb(object),start=start,end=end,...)
 		})
 
@@ -243,12 +214,13 @@ setMethod("getEpitope",
 							
 		#filter by start and end position
 		ret<-get("antibody",object)
-#		start=list(...)$start
-#		end=list(...)$end
-		if(!is.null(start))
-			ret<-subset(ret,end>=start)
-		if(!is.null(end))
-			ret<-subset(ret,start<=end)
+
+		queryStart<-start
+		queryEnd<-end
+		if(!is.null(queryStart))
+			ret<-subset(ret,end>=queryStart)
+		if(!is.null(queryEnd))
+			ret<-subset(ret,start<=queryEnd)
 	
 #		name<-list(...)$name
 		if(!is.null(name))
@@ -261,7 +233,6 @@ setMethod("getEpitope",
 #		frame<-list(...)$frame
 		if(!is.null(frame))
 			ret<-subset(ret,t_frame%in%frame)
-#		browser()
 		if(nrow(ret)>0)
 			Epitope(ret,object)
 		else
@@ -297,7 +268,7 @@ setMethod("getDNA",
 setMethod("getDNA",
 		signature=signature(object="HivFeature"),
 		definition=function(object,...){
-	DNA_list<-lapply(seq_along(1:nrow(object)),function(i){
+		DNA_list<-lapply(seq_along(1:nrow(object)),function(i){
 						curF<-object[i,]
 						
 			hxb2_range<-getHXB2Coordinates(curF)		
@@ -412,12 +383,6 @@ setMethod("getAA",
 			names(AA_list)<-getName(object)
 			AA_list			
 })
-#setMethod("getAA",
-#		signature=signature(object="list"),
-#		definition=function(object,...){
-#			
-#			lapply(object,getAA,...)
-#		})
 
 #accessor to the genome elt of an environment object
 setMethod("getGenome",
@@ -441,30 +406,17 @@ setMethod("clade",
 		signature=signature(object="RangedData"),
 		definition=function(object)
 {
-	cladeList<-unique(unlist(strsplit(levels(as.factor(object$clade)),",")))
+	cladeList<-unique(unlist(strsplit(levels(as.factor(object$clade)),","))) #List of all possible clades
 	len<-nrow(object)
-	retMatrix<-c()
-	s2<-system.time(
-			{
-				
+	retMatrix<-matrix(FALSE, nrow=len, ncol=length(cladeList))
+	pepClades<-strsplit(object$clade, split=",") #clades for each peptide
+	
 	for(pepIdx in 1:len)
 	{
-		pepClades<-unlist(strsplit(object[pepIdx,]$clade, split=","))
-		tmpList<-lapply(cladeList, function(x)
-				{
-					if(x %in% pepClades)
-						TRUE
-					else
-						FALSE
-				})
-		retMatrix<-c(retMatrix, tmpList)
+		tmpList<-cladeList %in% pepClades[[pepIdx]]
+		retMatrix[pepIdx,]<-tmpList
 	}
-	})#s2
 
-	print(c(s2))
-
-	dim(retMatrix)<-c(length(cladeList), len)
-	retMatrix<-t(retMatrix)
 	rownames(retMatrix)<-rownames(object)
 	colnames(retMatrix)<-cladeList
 

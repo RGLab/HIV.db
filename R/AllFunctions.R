@@ -106,7 +106,9 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 
 lsCategory<-function(HIV_db)
 {
-	tbl<-get("hxb2Table",HIV_db)
+	genome<-getGenome(HIV_db)
+	tblName<-paste(genome,"Table", sep="")
+	tbl<-get(tblName,HIV_db)
 	unique(tbl$t_category)
 }
 #when range is provided,return all the features that have intersections with the range
@@ -147,7 +149,6 @@ lsCategory<-function(HIV_db)
 #		ret<-lapply(ret,function(feature){	
 #			c(feature,getChildren(feature,recursive=TRUE))
 #		})
-#	browser()
 
 	#	if(length(ret)==1)
 #		ret[[1]]
@@ -335,9 +336,15 @@ setMethod("coord2ext", signature=(obj="RangedData"), function(obj, refScale)
 
 #
 # Returns the zZsum for the AAString
+#   ref:Classification of G-protein coupled receptors by 
+#       alignment-independent extraction of principal chemical
+#       properties of primary amino acid sequences
 #
-.zSum<-function(AAString, Z)
+.zSum<-function(AAString, Z=NULL)
 {
+	#if no Z is specified, the function returns a matrice with the 5zScales
+	if(is.null(Z))
+		Z<-c("z1","z2","z3","z4","z5")
 	rownames<-c("A","R","N","D","C","Q","E","G","H","I","L","K","M","F","P","S","T","W","Y","V")
 	colnames<-c("z1","z2","z3","z4","z5")
 	zTable<-c(
@@ -369,7 +376,7 @@ setMethod("coord2ext", signature=(obj="RangedData"), function(obj, refScale)
 	{
 		total<-total+zTable[substr(AAString,AA,AA),Z]
 	}
-	
+
 	return(total)
 	
 }
@@ -388,14 +395,4 @@ setMethod("coord2ext", signature=(obj="RangedData"), function(obj, refScale)
 #cladeHXB2<-as(final, "RangedData")
 #rownames(cladeHXB2)<-rownames(nPep)
 #
-### Construction of the new pep_mac239 with the new clade system #Not needed
-#nPep<-pep_mac239
-#cladCol<-unlist(lapply(rownames(nPep), function(x)
-#				{
-#					paste(names(which(unlist(nPep@values[["1"]][x,2:3])==TRUE)), collapse=",")
-#				}))
-#
-#ndf<-as.data.frame(nPep[,c(1,4:8)])
-#final<-cbind(ndf, clade=cladCol, stringsAsFactors=FALSE)
-#cladem239<-as(final, "RangedData")
 

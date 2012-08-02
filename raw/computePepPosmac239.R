@@ -86,12 +86,12 @@ substrEx<-function(x,start,len,ignore="-"){
 
 
 ##read multi_aligned clade sequences from MUSCEL
-clade_seqs<-readFASTA(file="~/Programs/git/HIV.db/inst/extdata/MuscleAlignmentmac239.fasta")
+clade_seqs<-readFASTA(file="~/Programs/git/HIV.db/inst/extdata/MuscleLANL_239_E660.fasta")
 cladeNames<-unlist(lapply(clade_seqs,"[[",1))
 clade_seqs<-unlist(lapply(clade_seqs,"[[",2))
 names(clade_seqs)<-cladeNames
 clade_names<-c("mac239", "E660")
-mac239_seq<-clade_seqs["mac239"]
+mac239_seq<-clade_seqs["mac239_LANL"]
 
 ##compute for each clade
 for(curCladeName in clade_names)
@@ -170,11 +170,8 @@ for(curCladeName in clade_names)
 }
 
 ######################################################################
-##4.merge the new positions from 7 clades
+##4.merge the new positions from 2 clades
 ###################################################################
-
-##merge the new positions from 7 clades
-
 mac239_ir<-IRanges()
 ir_mac239GapFilters<-as(IRangesList(),"GappedRanges")
 #gap_ir<-NULL

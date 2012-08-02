@@ -35,7 +35,7 @@ setGeneric("getEpitope",
 
 setGeneric("getAnnotationTable", 
 		function(object)
-			standardGeneric("getHXB2Table"))
+			standardGeneric("getAnnotationTable"))
 
 
 setGeneric("getAntibodyTable", 

@@ -6,11 +6,12 @@
 
 \usepackage{times}
 \usepackage{hyperref}
+\usepackage{underscore}
+\usepackage{Sweave}
 \usepackage[authoryear,round]{natbib}
 
 
 \usepackage{graphicx}
-%\usepackage{subfigure}
 
 \textwidth=6.2in
 \textheight=8.5in
@@ -28,7 +29,7 @@
 
 
 
-\title{HIV.db: A package that provides HIV feature database and query APIs}
+\title{HIV.db: A package that provides HIV/SIV feature database and query APIs}
 \author{Mike Jiang,Raphael Gottardo}
 
 \begin{document}
@@ -37,6 +38,8 @@
 \begin{abstract}
 \end{abstract}
 
+\tableofcontents
+
 \section{Introduction}
 The current \Rpackage{HIV.db} package provides simple API to access the HIV(HXB2) feature database that contains HIV genes,gene products,genomic structure elements and epitopes.
 
@@ -44,26 +47,33 @@ The current \Rpackage{HIV.db} package provides simple API to access the HIV(HXB2
 library(HIV.db)
 @
 
-\section{Load HIV feature database}
-%\Rfunction{loadFeatures} function load the HIV feature database into memory.In the current version it simply returns an environment
-%that stores all the data tables read from the data files. In the future it is going to the database connection that connect to the feature database in the back end. 
-\Rfunction{loadFeatures} function load the feature database for the selected genome and element into memory. The returned \Robject{environment} will contain the chosen reference element and its children features. The ranges of the features are given by default in amino acid coordinates relative to the reference.
+\section{Load a feature database}
+The \Rfunction{loadFeatures} function load the feature database for the selected genome and genomic region into memory. The returned \Robject{environment} will contain the chosen reference element and its children features (i.e all the features located in the same ranges of the genome and on the same frame). The ranges of the features are given by default in amino acid coordinates relative to the reference.
 
-<<loadFeatures, eval=T, echo=TRUE,results=verbatim>>=
-HIV_env<-loadFeatures(ref="env")
+\subsection{Basic use}
+<<loadFeatures-basic, eval=T, echo=TRUE,results=verbatim>>=
+HIV_env<-loadFeatures()
 @
+By default, the function will load the features for the enveloppe of HIV. Thus, the previous call to \Rfunction{loadFeatures} is equivalent to the following:
+<<loadFeatures-default,  eval=T, echo=TRUE,results=verbatim>>=
+HIV_env<-loadFeatures(ref="env", genome="hxb2")
+@
+HXB2 is the reference genome for HIV in the package.
 
+\subsection{Specifying a reference or a genome}
+To load a different feature, use the ref and genome arguments. Here we load the features for the Gag gene in SIV:
+<<loadFeatures-ref/genome,  eval=T, echo=TRUE,results=verbatim>>=
+SIV_Gag<-loadFeatures(ref="Gag", genome="mac239")
+@
+In this package, we use mac239 as the reference genome for SIV. With hxb2 it is at the moment the only two available options.
+
+\subsection{Changing the coordinate system}
 Alternately, \Rfunction{loadFeatures} can load features in DNA coordinates relative to the full genome. 
 <<loadFeaures-DNA, eval=T, echo=TRUE, results=verbatim>>=
-HIV_gag<-loadFeatures(ref="gag", DNA=TRUE)
+HIV_pol<-loadFeatures(ref="pol", DNA=TRUE)
 @
 
-At the moment, two genomes are available. hxb2 is the one loaded by default but
-it can be changed for mac239 using the genome argument.
-<<loadFeatures-genome, eval=T, echo=TRUE, results=verbatim>>=
-SIV_env<-loadFeatures(genome="mac239")
-@
-
+\subsection{Exploring the database}
 After the database is loaded, users can explore the database by \Rfunction{lsCategory}, which lists the types of features availabe in the database for query.
 <<lsCategory, echo=true, results=verbatim>>=
 lsCategory(HIV_env)
@@ -72,38 +82,61 @@ lsCategory(HIV_env)
 
 \section{Query HIV feature database} 
 The package provides two query methods:\Rfunction{getFeature} for HIV features and \Rfunction{getEpitope} for HIV epitopes. 
-Different HIV genes,proteins or viral regions can be searched by their names or categories:
 
+\subsection{Default query}
+\Rfunction{getFeature} take the result of \Rfunction{loadFeatures} as its first and only required argument. If no other argument is passed, the function will return the list of all the features in the selected database.
+<<getFeature-default, eval=T, echo=TRUE>>=
+getFeature(SIV_Gag)
+@
+
+
+Different genes,proteins or viral regions can be searched by their names or categories:
 <<getFeature-name, echo=true, results=hide>>=
 getFeature(HIV_env, name=c("gp120","gp41"))
-getFeature(HIV_env, category="loop")
-feature1<-getFeature(HIV_env, name="gp120")
+getFeature(SIV_Gag, category="protein")
 @
 
 and filter the query results further by the reading frames.
-
 <<getFeature-frame, echo=true, results=verbatim>>=
-getFeature(HIV_env, category=c("gene"),frame=3)
+getFeature(HIV_env, category=c("RNA"),frame=3)
 @
 
-hxb2 coordinates can also be used to specify the start and end nucleotide positions.
-
-<<getFeature-coordinate, echo=true, results=hide>>=
-getFeature(HIV_gag,start=790,end=2000)
+Coordinates can also be used to specify the start and end nucleotide positions.
+Note that the coordinates have to be of the same type as the one used in \Rfunction{loadFeatures} within the feature sequence. Here with SIV_Gag which has been loaded in amino-acid coordinates.
+<<getFeature-coordinates-AA, echo=true, results=verbatim>>=
+getFeature(SIV_Gag,start=0,end=370)
 @
 
-The same query can be done to the epitope database by \Rfunction{getEpitope} method execpt that it takes an extra
-arugment \Robject{species}.
+Now with HIV_pol in DNA coordinates.
+<<getFeature-coordinates-DNA, echo=true>>=
+getFeature(HIV_pol, start=2000, end=3000)
+@
 
-<<getEpitope, echo=true, results=verbatim>>=
-getEpitope(HIV_gag,start=4240,end=5096,species="mouse",name="4D6",frame=3)
+It will return every feature that has a part of its sequence between the start and end argument, even if the sequence is actually longer.
+
+
+\subsection{Querying epitopes}
+The same query can be done to the epitope database by \Rfunction{getEpitope} method.
+<<getEpitope-default, echo=true, results=hide>>=
+getEpitope(HIV_pol)
+@
+
+
+Epitope queries can also be filtered, the available filters are the ranges, the frame and the species.
+<<getEpitope-filters, echo=true, results=verbatim>>=
+getEpitope(HIV_env, start=50, end=70, frame=3, species="mouse")
+@
+
+Alternately, a name can be specified to retrieve a specific epitope.
+<<getEpitope-filter-name, echo=true, results=verbatim>>=
+getEpitope(HIV_pol, name="13E1")
 @
 
 \Rfunction{getEpitope} also takes a \Robject{HivFeature} object as input and use the HXB2 coordinates range to get the appropriate epitopes. 
 
-<<getEpitope-feature, echo=true, results=verbatim>>=
-feature2<-getFeature(HIV_gag, name="p7")
-getEpitope(feature2, species="mouse") 
+<<getEpitope-feature, echo=true, results=hide>>=
+gp41<-getFeature(HIV_env, name="gp41")
+getEpitope(gp41, species="mouse") 
 @ 
  
  
@@ -112,52 +145,55 @@ HivFeatures have the parent or children features based on the relative positions
 We provide two methods to query the children or parent features: \Rfunction{getChildren} and \Rfunction{getParent}.
 
 <<getChildren, echo=true, results=hide>>=
-feature3<-getFeature(HIV_gag, name="gag")
-getChildren(feature3)
+getChildren(gp41)
 @
 
 <<getParent, echo=true, results=verbatim>>=
-feature4<-getFeature(HIV_gag, name="p24")
-getParent(feature4)
-
-feature5<-getFeature(HIV_env, name="V1")
-getParent(feature5)
+getParent(gp41)
 @
 
 When \Robject{recursive} is set as \Robject{TRUE},all the descendants or ancestors are returned besides the immediate children or parents.
 
-<<getParent-recur, echo=true, results=verbatim>>=
-getParent(feature5,recursive=TRUE)
+<<getParent-recur, echo=true, results=hide>>=
+V1_loop<-getFeature(HIV_env, name="V1")
+getParent(V1_loop,recursive=TRUE)
 
 
-getChildren(feature1,recursive=TRUE)
+env<-getFeature(HIV_env, name="env")
+getChildren(env, recursive=TRUE)
 @
 
-\section{sequence of HIV feature}
-We also provide two methods to extract amino acid or DNA sequence of the HIV features.
+\section{Sequence of feature objects}
+We also provide two methods to extract amino acid or DNA sequence: \Rfunction{getAA} and \Rfunction{getDNA}.
+
+\subsection{From HIV features}
 Sequence can be extracted from \Robject{HivFeature} objects directly 
 
-<<getAA-feature, echo=true, results=hide>>=
-getAA(feature4)
-getDNA(feature4)
-@
-
-or by providing database environment and a feature and hxb2 coornidates range to \Rfunction{getAA} method:
-
-<<getAA-other, echo=TRUE, results=hide>>=
-getAA(HIV_gag,name="pol")
-
-getDNA(HIV_gag,start=1921,end=2085)
-
-getDNA(feature4,start=1500,end=1615)
+<<getAA/getDNA-feature, echo=true>>=
+getAA(gp41)
+getDNA(gp41)
 @
 
 Note that both methods can take a list of \Robject{HivFeature} objects as the input and return the their sequences respectively.
+<<getAA/getDNA-featureList, echo=true>>=
+gp_features<-getFeature(HIV_env, name=c("gp120","gp41"))
+getAA(gp_features)
 
-<<getAA-list, echo=true, results=hide>>=
-getAA(getChildren(feature3))
-getDNA(getChildren(feature3))
-@ 
+head(getAA(getChildren(env)))
+head(getDNA(getChildren(env)))
+@
+
+\subsection{From environments}
+It is also possible to get sequences directly from the \Robject{environment} objects returned by \Rfunction{loadFeatures}.
+In order to retrieve the sequence of a feature from an environment, the function require the name of the feature.
+<<getAA-environment, echo=TRUE>>=
+getAA(HIV_pol,name="pol")
+@
+
+For DNA sequence, the start and end position of the segment are required.
+<<getDNA-environment, echo=TRUE>>=
+getDNA(HIV_pol, start=50, end=249)
+@
 
 \section{conclusion}
 The package allows users to query the built-in HIV features database for the important information about HIV gene and gene product as well as genomic structure elements.   
@@ -167,6 +203,6 @@ The package allows users to query the built-in HIV features database for the imp
 http://www.hiv.lanl.gov/content/sequence/HIV/MAP/landmark.html
 
 \clearpage
-%\bibliographystyle{plainnat} 
-%\bibliography{cytoref}
+%%%\bibliographystyle{plainnat} 
+%%%\bibliography{cytoref}
 \end{document}
