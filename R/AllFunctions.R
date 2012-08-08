@@ -39,7 +39,7 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	ret<-.readTblfromHIVdb(tblname=tableName)
 	ret<-subset(ret,t_category!="internal")
 	
-	if(genome=="hxb2") ###
+	if(genome=="hxb2")
 	{
 	  ret1<-.readTblfromHIVdb("gpadditional")
 	  ret<-rbind(ret,ret1)
@@ -48,14 +48,16 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	#Selection of what is relevant considering the reference
 	refFeature<-subset(ret,t_name==ref)
 	#ret<-subset(ret,t_name%in%ref)
-	ret<-subset(ret,t_start>=refFeature[["t_start"]])
-	ret<-subset(ret,t_end<=refFeature[["t_end"]])
+	DNArefStart<-refFeature[["t_start"]]
+	DNArefEnd<-refFeature[["t_end"]]
+	ret<-subset(ret,t_start>=DNArefStart)
+	ret<-subset(ret,t_end<=DNArefEnd)
 	#Change the coordinates to AA relative to the ref
 	if(!DNA)
 	{
 		ret<-subset(ret,t_frame==refFeature[["t_frame"]])
-		ret[["t_start"]]<-sapply(ret[["t_start"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
-		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
+		ret[["t_start"]]<-sapply(ret[["t_start"]], function(x){ceiling((x-DNArefStart)/3)})
+		ret[["t_end"]]<-sapply(ret[["t_end"]], function(x){ceiling((x-DNArefStart)/3)})
 	}
 	if(!is.null(refScale))
 	{
@@ -63,7 +65,7 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 		ret[["t_end"]]<-coord2ext(ret[["t_end"]], refScale)
 	}
 	
-	assign(tableName,ret,HIV_db)
+	assign("FeatureTable",ret,HIV_db)
 
 	AbTableName<-paste("antibody", genome, sep="_")
 	ret<-.readTblfromHIVdb(AbTableName)
@@ -71,14 +73,14 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	{
 	  ret<-rbind(ret,.readTblfromHIVdb("bindings"))
     }
-	ret<-subset(ret,start>=refFeature[["t_start"]])
-	ret<-subset(ret,end<=refFeature[["t_end"]])
+	ret<-subset(ret,start>=DNArefStart)
+	ret<-subset(ret,end<=DNArefEnd)
 	#Change the coordinates to AA relative to the ref
 	if(!DNA)
 	{
 		ret<-subset(ret,t_frame==refFeature[["t_frame"]])
-		ret[["start"]]<-sapply(ret[["start"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
-		ret[["end"]]<-sapply(ret[["end"]], function(x){ceiling((x-refFeature[["t_start"]])/3)})
+		ret[["start"]]<-sapply(ret[["start"]], function(x){ceiling((x-DNArefStart)/3)})
+		ret[["end"]]<-sapply(ret[["end"]], function(x){ceiling((x-DNArefStart)/3)})
 	}	
 	if(!is.null(refScale))
 	{
@@ -92,23 +94,21 @@ loadFeatures<-function(ref="env",DNA=FALSE, refScale=NULL, genome="hxb2")
 	
 	assign("antibody",ret,HIV_db)
 
-	AAName<-paste(genome,"AA",sep="")
-	DNAName<-paste(genome,"DNA",sep="")
+
 	AAfasta<-paste(genome,"_AA.fasta",sep="")
 	DNAfasta<-paste(genome,"_DNA.fasta",sep="")
-	assign(AAName,.readAASeq(AAfasta, genome),HIV_db)
-	assign(DNAName,.readAASeq(DNAfasta, genome),HIV_db)
+	assign("AA",.readAASeq(AAfasta, genome)[[tolower(ref)]],HIV_db)
+	assign("DNA",subseq(.readDNASeq(DNAfasta), DNArefStart, DNArefEnd) ,HIV_db) #keep only the sequence coding for the ref
+	assign("ref", ref, HIV_db) #keep track of the ref
 	assign("genome", genome, HIV_db) #keep track of the genome
-
 
 	HIV_db
 }
 
 lsCategory<-function(HIV_db)
 {
-	genome<-getGenome(HIV_db)
-	tblName<-paste(genome,"Table", sep="")
-	tbl<-get(tblName,HIV_db)
+
+	tbl<-get("FeatureTable",HIV_db)
 	unique(tbl$t_category)
 }
 #when range is provided,return all the features that have intersections with the range
@@ -118,10 +118,7 @@ lsCategory<-function(HIV_db)
 	if(!is.null(category)&&tolower(category)=="epitope")
 		return(getEpitope(HIV_db,name=name,start=start,end=end,frame=frame,...))
 	####otherwise, query hxb2Table
-	genome<-getGenome(HIV_db)
-	tableName<-paste(genome,"Table", sep="") ###
-	tbl<-get(tableName,HIV_db)
-	ret<-tbl
+	ret<-get("FeatureTable", HIV_db)
 	if(!is.null(frame))
 		ret<-subset(ret,t_frame%in%frame)
 	if(!is.null(category))
@@ -144,16 +141,6 @@ lsCategory<-function(HIV_db)
 #		ret<-ret[order(ret$t_start)[len],]#get the closest one	
 	}
 	ret<-HivFeature(ret,HIV_db)
-	
-#	if(children)
-#		ret<-lapply(ret,function(feature){	
-#			c(feature,getChildren(feature,recursive=TRUE))
-#		})
-
-	#	if(length(ret)==1)
-#		ret[[1]]
-#	else
-#		ret
 	ret
 	
 }

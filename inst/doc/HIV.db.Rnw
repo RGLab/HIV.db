@@ -173,27 +173,32 @@ Sequence can be extracted from \Robject{HivFeature} objects directly
 getAA(gp41)
 getDNA(gp41)
 @
+By default, if no feature name is provided, the returned sequence is the one of
+the reference used when loading features in the enviornment. The DNA sequence is
+the one coding for the reference.
 
-Note that both methods can take a list of \Robject{HivFeature} objects as the input and return the their sequences respectively.
-<<getAA/getDNA-featureList, echo=true>>=
-gp_features<-getFeature(HIV_env, name=c("gp120","gp41"))
-getAA(gp_features)
 
-head(getAA(getChildren(env)))
-head(getDNA(getChildren(env)))
+When the argument name is specified, the functions will return the sequences of
+the feature corresponding to the name.
+<<getAA/getDNA-name, echo=true>>=
+gp_features<-getFeature(HIV_env)
+getAA(gp_features, name=c("gp41","gp120"))
+getDNA(gp_features, name=c("gp41","gp120"))
 @
 
 \subsection{From environments}
-It is also possible to get sequences directly from the \Robject{environment} objects returned by \Rfunction{loadFeatures}.
-In order to retrieve the sequence of a feature from an environment, the function require the name of the feature.
+It is also possible to get sequences directly from the \Robject{environment}
+objects returned by \Rfunction{loadFeatures}.
 <<getAA-environment, echo=TRUE>>=
-getAA(HIV_pol,name="pol")
+getAA(HIV_pol)
 @
 
 For DNA sequence, the start and end position of the segment are required.
 <<getDNA-environment, echo=TRUE>>=
-getDNA(HIV_pol, start=50, end=249)
+getDNA(HIV_pol)
 @
+Here again, names can be provided to select specific features sequences.
+
 
 \section{conclusion}
 The package allows users to query the built-in HIV features database for the important information about HIV gene and gene product as well as genomic structure elements.   
