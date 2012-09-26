@@ -48,25 +48,21 @@ Mike Jiang,Raphael Gottardo
 library(HIV.db)
 
 ## load Table from db
-HIV_db<-loadFeatures()
+HIV_db<-loadFeatures(ref="env")
 ##########################
 #query amino acid sequence 
 #######################
-#by name
-getAA(HIV_db,name="pol")
-getAA(HIV_db,name="gag")
-
-feature6<-getFeature(HIV_db, name="p7")
+#by environment
+getAA(HIV_db)
 
 #by feature
-getAA(feature6[[1]])
-
-#by feature list
-feature2<-getFeature(HIV_db, name="pol")
-getAA(getChildren(feature2))
+feature1<-getFeature(HIV_db)
+getAA(feature1)
+#by name
+getAA(feature1, name="gp120")
 
 #by Epitope
-getAA(getEpitope(HIV_db,start=4240,end=5096,species="mouse",name="4D6",frame=3))
+getAA(getEpitope(HIV_db, start=100, end=200))
 
 }
 \keyword{methods}

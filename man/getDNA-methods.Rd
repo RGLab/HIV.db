@@ -44,28 +44,21 @@ Mike Jiang,Raphael Gottardo
 library(HIV.db)
 
 ## load Table from db
-HIV_db<-loadFeatures()
+HIV_env<-loadFeatures(ref="env")
 ##########################
 #query DNA sequence 
 #######################
 
-feature6<-getFeature(HIV_db, name="p7")
+feature1<-getFeature(HIV_env)
 
 #by feature
-getDNA(feature6[[1]])
+getDNA(feature1)
 
 #by feature list
-feature2<-getFeature(HIV_db, name="pol")
-getDNA(getChildren(feature2))
-
-#by range
-getDNA(HIV_db,start=1921,end=2085)
-
-##if both range and feature are provided,the intersection of two ranges are used for query
-getDNA(feature6[[1]],start=1921,end=2095)
+getDNA(feature1, name=c("gp41","gp120"))
 
 #by Epitope
-getDNA(getEpitope(HIV_db,start=4240,end=5096,species="mouse",name="4D6",frame=3))
+getDNA(getEpitope(HIV_env,name="2F5"))
 
 
 

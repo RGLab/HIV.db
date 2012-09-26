@@ -78,6 +78,3 @@ setGeneric("getRef",
 		function(object)
 			standardGeneric("getRef"))
 
-setGeneric("clade",
-		function(object)
-			standardGeneric("clade"))

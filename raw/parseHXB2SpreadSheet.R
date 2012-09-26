@@ -35,7 +35,7 @@ write.csv(protein.site,file=paste(path,"output/protein.site.csv",sep=""))
 ####################################################
 path="~/rglab/workspace/HIV.db/inst/extdata/parsed"
 HIV_db<-read.csv(paste(path,"hxb2Table.csv",sep="/"),as.is=TRUE)
-Antibody_db<-read.csv(paste(path,"ab_summary(manually corrected).csv",sep="/"),as.is=TRUE)
+Antibody_db<-read.csv(paste(path,"ab_summary_manually corrected.csv",sep="/"),as.is=TRUE)
 #Antibody_db$Epitope<-as.character(Antibody_db$Epitope)
 
 #fill empty name

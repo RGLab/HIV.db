@@ -15,7 +15,7 @@ list all the available categories of HIV features in HIV.db
 }
 
 \arguments{
-	\item{\code{HIV_db}:}{an environment that stores the HIV feature database}
+	\item{HIV_db}{an environment that stores the HIV feature database}
 }
 
 \value{
@@ -41,4 +41,6 @@ HIV_db<-loadFeatures()
 ###list available category
 lsCategory(HIV_db)
 }
+
+\keyword{functions}
 

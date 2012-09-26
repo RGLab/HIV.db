@@ -193,7 +193,6 @@ objects returned by \Rfunction{loadFeatures}.
 getAA(HIV_pol)
 @
 
-For DNA sequence, the start and end position of the segment are required.
 <<getDNA-environment, echo=TRUE>>=
 getDNA(HIV_pol)
 @

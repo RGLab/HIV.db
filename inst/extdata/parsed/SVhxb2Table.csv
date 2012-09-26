@@ -1,0 +1,83 @@
+"t_ID","t_name","t_start","t_end","t_category","t_parentID","t_frame","referenceID","comments"
+1,"env",6225,8795,"gene",0,3,,
+2,"gag",790,2292,"gene",0,1,,
+5,"pol",2253,5096,"gene",0,3,,
+6,"vif",5041,5619,"protein",0,1,,
+7,"Vpr",5559,5850,"protein",0,3,,
+8,"gp120",6315,7757,"protein",1,3,,
+9,"gp41",7758,8795,"protein",1,3,,
+10,"p31",4230,5096,"protein",5,3,,
+11,"Nef_CDS",1,329,"CDS",0,3,,"?"
+13,"Nef",8797,9417,"protein",0,1,,
+14,"p1",2086,2133,"protein",2,1,,
+15,"p17",790,1185,"protein",2,1,,
+16,"p2",1882,1920,"protein",2,1,,
+17,"p24",1186,1881,"protein",2,1,,
+18,"p6",2134,2292,"protein",2,1,,
+19,"p7",1921,2085,"protein",2,1,,
+20,"p10",2253,2549,"protein",5,3,,
+21,"p15",3870,4229,"protein",5,3,,
+22,"p51",2550,3869,"protein",5,3,,
+23,"Tat_exon1",5831,6045,"protein",0,2,,
+24,"Tat_exon2",8379,8469,"protein",0,1,,
+25,"V1",6616,6692,"loop",8,3,,
+26,"V2",6694,6809,"loop",8,3,,
+27,"V3",7111,7214,"loop",8,3,,
+28,"V4",7378,7475,"loop",8,3,,
+29,"V5",7602,7631,"loop",8,3,,
+30,"Vpu  (defective in HXB2)",6062,6310,"protein",0,2,,
+31,"19-base silencer RNA stem 1 side 1 ",7780,7798,"RNA",0,3,,"?"
+32,"19-base silencer RNA stem 1 side 2 ",7997,8015,"RNA",0,3,,"?"
+33,"1DUQ PDB entry chain A is bases ",8575,8587,"RNA",0,3,,"?"
+34,"3' LTR R repeat ",9541,9636,"LTR",0,3,,"?"
+35,"3' LTR U3 region ",9086,9540,"LTR",0,1,,"?"
+36,"3' LTR U5 region ",9637,9719,"LTR",0,3,,"?"
+37,"5' LTR R region",456,551,"LTR",0,2,,"?"
+38,"5' LTR U3 region",1,455,"LTR",0,1,,"?"
+39,"5' LTR U5 region ",552,633,"LTR",0,2,,"?"
+40,"LLP-3 Leucine zipper-like anphypathic helix",8589,8669,"RNA",0,3,,"?"
+41,"Interferon-Stimulated Response Element",655,673,"RNA",0,0,,"?"
+42,"NF-kappaB binding 1",350,359,"binding",0,0,,"?"
+43,"NF-kappaB binding 2",364,373,"binding",0,0,,"?"
+44,"NK-kappa B I",9448,9458,"binding",0,0,,"?"
+45,"NK-kappa B II",9435,9444,"binding",0,0,,"?"
+46,"poly-A signal 1",527,532,"RNA",0,0,,"?"
+47,"poly-A signal 2",9612,9617,"RNA",0,0,,"?"
+48,"polypurine tract ",9069,9093,"RNA",0,0,,"?"
+49,"RRE Rev-responsive element stem I ",7710,7805,"RRE",0,0,,"?"
+50,"RRE Rev-responsive element stem I' ",7963,8061,"RRE",0,0,,"?"
+51,"RRE rev-responsive element stem IIa ",7806,7812,"RRE",0,0,,"?"
+52,"RRE stem V ",7933,7940,"RRE",0,0,,"?"
+53,"RRE stem V' ",7950,7957,"RRE",0,0,,"?"
+54,"SL1 of Psi element ",697,731,"PE",0,0,,"?"
+55,"SL2 of Psi element ",736,754,"PE",0,0,,"?"
+56,"SL3 of Psi element ",766,779,"PE",0,0,,"?"
+57,"SL4 of Psi element ",793,806,"PE",0,0,,"?"
+58,"Sp1-I 2",9483,9493,"RNA",0,0,,"?"
+59,"Sp1-I 1",398,408,"RNA",0,0,,"?"
+60,"Sp1-II 2",9473,9482,"RNA",0,0,,"?"
+61,"Sp1-II 1",388,396,"RNA",0,0,,"?"
+62,"Sp1-III 2",9462,9471,"RNA",0,0,,"?"
+63,"Sp1-III 1",375,386,"RNA",0,0,,"?"
+64,"subtype B and D 21 bp deletion, relative to A, C, G etc",8582,8584,"RNA",0,0,,"?"
+65,"TAR bulge1",476,478,"TAR",0,0,,"?"
+66,"TAR bulge2",9561,9563,"TAR",0,0,,"?"
+67,"TAR Element 1",453,513,"TAR",0,0,,"?"
+68,"TAR Element 2",9538,9599,"TAR",0,0,,"?"
+69,"TAR loop1",483,488,"TAR",0,0,,"?"
+70,"TAR loop2",9568,9573,"TAR",0,0,,"?"
+72,"TATA box2",9512,9516,"RNA",0,0,,"?"
+73,"TATA box1",427,431,"RNA",0,0,,"?"
+75,"TCF-1alpha binding",9400,9414,"binding",0,0,,"?"
+76,"Caveolin-1 binding ",8091,8117,"binding",0,0,,"?"
+79,"Vpr binding to p6 region of Gagp55 begin",2152,2169,"binding",0,0,,"?"
+80,"Asp368 ",7326,7328,"binding",0,0,,"?"
+81,"Glu370 ",7332,7334,"binding",0,0,,"?"
+82,"Trp427",7503,7505,"binding",0,0,,"?"
+83,"gp160",6225,8795,"internal",1,3,,
+84,"Rev_exon1",5970,6045,"protein",0,3,,
+85,"Rev_exon2",8379,8653,"protein",0,2,,
+86,"p2p7p1p6",1882,2292,"internal",0,1,,"(for calculation of antibody binding position)"
+87,"Tat",5831,8469,"internal",0,0,,
+88,"Rev",5970,8653,"internal",0,0,,
+89,"p66",2550,4229,"protein",5,3,,

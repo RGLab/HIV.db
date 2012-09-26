@@ -55,13 +55,13 @@ Mike Jiang,Raphael Gottardo
 \examples{
 library(HIV.db)
 
-## load Table from db
+## load Table from db with default parameters (ref="env").
 HIV_db<-loadFeatures()
 
-feature1<-getFeature(HIV_db, name="gag")
+feature1<-getFeature(HIV_db)
 show(feature1)
 
-getHXB2Coordinates(feature1[[1]])
+getHXB2Coordinates(feature1)
 getName(feature1)
 getFrame(feature1)
 }
