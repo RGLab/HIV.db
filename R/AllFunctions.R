@@ -17,7 +17,7 @@
 .readAASeq<-function(fileName, genome="hxb2")
 {
 	seqfile <- system.file("extdata/parsed",fileName ,package="HIV.db")
-	ret<-read.AAStringSet(seqfile)
+	ret<-readAAStringSet(seqfile)
 	prefix<-paste(toupper(genome), "_AA_", sep="")
 	names(ret)<-tolower(sub(prefix,"",names(ret)))#strip the prefix
 	ret
@@ -27,7 +27,7 @@
 .readDNASeq<-function(fileName)
 {
 	seqfile <- system.file("extdata/parsed",fileName ,package="HIV.db")
-	read.DNAStringSet(seqfile)
+	readDNAStringSet(seqfile)
 }
 
 

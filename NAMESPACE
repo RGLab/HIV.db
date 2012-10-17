@@ -1,7 +1,7 @@
 ##
 ## NAMESPACE
 ##
-importFrom(Biostrings,read.DNAStringSet,read.AAStringSet,AAString)
+importFrom(Biostrings,readDNAStringSet,readAAStringSet,AAString)
 importFrom(IRanges,IRanges,DataFrame,Rle,values,"values<-",split,ranges,start,end,substr,subseq)
 importMethodsFrom(PEP.db, coord2ext)
 importFrom(PEP.db, readAlign)
