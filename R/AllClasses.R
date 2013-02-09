@@ -3,43 +3,6 @@
 # Author: mike
 ###############################################################################
 
-
-
-#setClass("HivFeature",  
-#		representation(FeatureID = "integer",
-#				name="character",
-#				category="character",
-#				start= "integer",
-#				end= "integer",
-#				frame= "integer",
-#				parentID="integer",
-#				HIV_db="environment"),
-#		prototype(
-#				FeatureID= integer(0),
-#				name=character(0),
-#				category=character(0),
-#				start= integer(0),
-#				end=integer(0),
-#				parentID=integer(0),
-#				HIV_db=new.env(hash=TRUE,parent=emptyenv())
-#				)
-#);
-
-
-
-#setClass("Epitope",  
-#		representation(FeatureID = "integer",
-#				Epitope="character",
-#				Subtype="character",
-#				Species="character"),
-#		prototype(
-#				Epitope=character(0),
-#				Subtype=character(0),
-#				Species=character(0)
-#				),
-#		contains="HivFeature"
-#);
-
 setClass("HivFeature",  
 		representation(
 				HIV_db="environment"),
@@ -74,24 +37,14 @@ HivFeature<-function(object,HIV_db){
 			}else
 			{
 				NULL
-				
 			}
 			
 			
 			
 		}
 		
-setClass("Epitope",  
-#		representation(FeatureID = "integer",
-#				Epitope="character",
-#				Subtype="character",
-#				Species="character"),
-#		prototype(
-#				Epitope=character(0),
-#				Subtype=character(0),
-#				Species=character(0)
-#				),
-		,contains="HivFeature"
+setClass("Epitope",
+  contains="HivFeature"
 );
 #constructor for Epitope from data.frame
 Epitope<-function(object,HIV_db){
@@ -99,11 +52,9 @@ Epitope<-function(object,HIV_db){
 			{
 				ir<-IRanges(start=object[,"start"]
 						,end=object[,"end"]
-#						,name=object[,"MAb.Name"]
 						)
 				df<-DataFrame(FeatureID=object[,"X"]
-#						,MAb.Name=object[,"MAb.Name"]
-							,name=object[,"MAb.Name"]
+						,name=object[,"MAb.Name"]
 						,category="Epitope"
 						,frame=object[,"t_frame"]
 						,Epitope=object[,"Epitope"]
@@ -122,6 +73,5 @@ Epitope<-function(object,HIV_db){
 			}else
 			{
 				NULL
-				
 			}
 		}

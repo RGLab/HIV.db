@@ -10,5 +10,5 @@ The function reads an alignment and returns a reference scale (refScale) and a r
 }
 
 \seealso{
-\code{\link[PEP.db]{readAlign}}
+\code{\link[Pviz]{readAlign}}
 }

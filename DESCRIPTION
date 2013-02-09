@@ -6,7 +6,7 @@ Author: Mike Jiang,Raphael Gottardo
 Maintainer: Mike Jiang <wjiang2@fhcrc.org>
 Description: provide the annotation data of HIV Genome and gene products and simple query interface 
 License: Artistic-2.0
-Depends: R(>= 2.14.0)
-Imports: Biobase (>= 2.5.5), methods, Biostrings, IRanges, PEP.db
+Depends: R(>= 2.14.0), IRanges
+Imports: Biobase (>= 2.5.5), methods, Biostrings, Pviz
 biocViews: Microarray, Preprocessing, Statistics
 URL: http://www.rglab.org

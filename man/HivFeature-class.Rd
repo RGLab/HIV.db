@@ -25,13 +25,19 @@ Objects can be created by calls of the form \code{new("HivFeature", ...)}.
 }
 \section{Slots}{
   \describe{
-    \item{\code{FeatureID}:}{an integer that stores the unique annotation ID }
-    \item{\code{name}:}{a character that stores the annotation name }
-    \item{\code{category}:}{a character that stores the annotation category}
-    \item{\code{start,end}:}{integers that store the coordinates of the annotation on the HIV genome}
-    \item{\code{frame}:}{an integer storing the frame number of the annotation}
-    \item{\code{parentID}:}{an integer storing the parent annotation ID}
     \item{\code{HIV_db}:}{an environment that stores HIV feature database}
+    \item{\code{ranges}:}{an \code{IRanges} object that stores the start, end and width of all the epitopes}
+    \item{\code{values}:}{a \code{DataFrame}}
+    \item{\code{elementType}:}{"ANY"}
+    \item{\code{elementMetadata}:}{NULL}
+    \item{\code{metadata}:}{a \code{list}}
+    %\item{\code{FeatureID}:}{an integer that stores the unique annotation ID }
+    %\item{\code{name}:}{a character that stores the annotation name }
+    %\item{\code{category}:}{a character that stores the annotation category}
+    %\item{\code{start,end}:}{integers that store the coordinates of the annotation on the HIV genome}
+    %\item{\code{frame}:}{an integer storing the frame number of the annotation}
+    %\item{\code{parentID}:}{an integer storing the parent annotation ID}
+    %\item{\code{HIV_db}:}{an environment that stores HIV feature database}
   }
 }
 \section{Methods}{
