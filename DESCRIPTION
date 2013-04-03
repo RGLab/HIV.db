@@ -3,10 +3,10 @@ Type: Package
 Title: HIV Annotation
 Version: 0.99.0
 Author: Mike Jiang,Raphael Gottardo
-Maintainer: Mike Jiang <wjiang2@fhcrc.org>
+Maintainer: Renan Saueraud <rsautera@fhcrc.org>
 Description: provide the annotation data of HIV Genome and gene products and simple query interface 
 License: Artistic-2.0
 Depends: R(>= 2.14.0), IRanges
-Imports: Biobase (>= 2.5.5), methods, Biostrings, Pviz
+Imports: Biobase (>= 2.5.5), methods, Biostrings
 biocViews: Microarray, Preprocessing, Statistics
 URL: http://www.rglab.org

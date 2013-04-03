@@ -3,14 +3,12 @@
 ##
 importFrom(Biostrings,readDNAStringSet,readAAStringSet,AAString)
 importFrom(IRanges,IRanges,RangedData,DataFrame,Rle,values,"values<-",split,ranges,start,end,substr,subseq)
-importMethodsFrom(Pviz, coord2ext)
-importFrom(Pviz, readAlign)
+#importMethodsFrom(Pviz, coord2ext)
+#importFrom(Pviz, readAlign)
 
 #importClassesFrom(IRanges, RangedData, List, DataTable, DataTableORNULL, Vector, Annotated)
 #Export HIV.db stuff
 exportClasses(HivFeature,Epitope)
 exportMethods(show,getChildren,getParent,getEpitope,getFeature,getAA,getDNA,getName,getHXB2Coordinates,getFrame)
 export(loadFeatures,lsCategory)
-##Export imported stuff
 exportMethods("coord2ext")
-export("readAlign")

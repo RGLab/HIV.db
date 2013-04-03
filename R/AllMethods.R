@@ -457,3 +457,48 @@ setMethod("getGenome",
 			return(getGenome(getHIVdb(object)))
 		})
 
+setGeneric("coord2ext", def=function(obj, refScale){ standardGeneric("coord2ext") })
+
+# Convert the coordinates of an object into the extended coordinate given a scale
+# Input: An object and a reference scale
+# Output: an object of the same type with coordinates in extended system
+setMethod("coord2ext", signature=(obj="numeric"), function(obj, refScale){   
+  extVec<-sapply(obj, function(x){
+    min(
+      if(x<0){
+        x   
+      }else if(x==0){
+        which(refScale==1)
+      }else if(x>refScale[length(refScale)]){
+        which(refScale==refScale[length(refScale)])
+      }else if(length(which(refScale==x))){
+        which(refScale==x)
+      }else{            
+        NaN 
+      })})
+  extVec<-extVec[!is.na(extVec)]
+  return(extVec)
+})              
+
+setMethod("coord2ext", signature=(obj="RangedData"), function(obj, refScale){
+  if(start(obj)[[1]]==0) { start(obj)[[1]]=1 } #To avoid Inf values
+          
+  extStart<-coord2ext(start(obj),refScale)
+  extEnd<-coord2ext(end(obj),refScale)
+  #assign new start coordinates after end to avoid width<0 issues
+  end(obj)<-extEnd
+  start(obj)<-extStart
+  return(obj)
+})
+
+setMethod("coord2ext", signature=(obj="IRanges"), function(obj, refScale){
+  if(start(obj)[[1]]==0) { start(obj)[[1]]=1 } #To avoid Inf values
+
+  extStart<-coord2ext(start(obj),refScale)
+  extEnd<-coord2ext(end(obj),refScale)
+  #assign new start coordinates after end to avoid width<0 issues
+  end(obj)<-extEnd
+  start(obj)<-extStart
+  return(obj)
+})
+
