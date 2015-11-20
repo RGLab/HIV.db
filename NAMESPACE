@@ -2,7 +2,8 @@
 ## NAMESPACE
 ##
 importFrom(Biostrings,readDNAStringSet,readAAStringSet,AAString, subseq)
-importFrom(IRanges,IRanges,RangedData,DataFrame,Rle,values,"values<-",split,ranges,start,end,substr)
+importFrom(IRanges,IRanges,RangedData,values,"values<-",split,ranges,start,end)
+importFrom(S4Vectors,DataFrame,Rle)
 #importMethodsFrom(Pviz, coord2ext)
 #importFrom(Pviz, readAlign)
 
